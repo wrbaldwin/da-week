@@ -4,13 +4,13 @@
 In this lab exercise, you will create a Redshift cluster, then use SQL Workbench/J to populate and query it. You will need a Mac or Windows computer with a Firefox or Chrome browser.
 
 1.	Download and install SQL Workbench/J
-  * You will need Java 8 or higher running on your computer. If you need Java, download and install from http://www.java.com/en/ 
-  * Download the current Redshift JDBC Driver from https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.10.1009.jar 
-  * Download SQL Workbench/J from http://www.sql-workbench.net/downloads.html and install it. Be sure to click on Manage Drivers (in the lower left corner of the configuration screen) and choose Amazon Redshift and the JDBC Driver you downloaded earlier
-  * At the end of the installation it will be ready to connect to a database – stop when you get this this step, as you have not yet configured a database to use!
+  	* You will need Java 8 or higher running on your computer. If you need Java, download and install from http://www.java.com/en/ 
+  	* Download the current Redshift JDBC Driver from https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.10.1009.jar 
+  	* Download SQL Workbench/J from http://www.sql-workbench.net/downloads.html and install it. Be sure to click on Manage Drivers (in the lower left corner of the configuration screen) and choose Amazon Redshift and the JDBC Driver you downloaded earlier
+  	* At the end of the installation it will be ready to connect to a database – stop when you get this this step, as you have not yet configured a database to use!
 
 2.	Create the IAM role you will need to copy S3 objects to Redshift
-•	Logon to the AWS console using your student account. Choose the AWS region assigned by your instructor.
+	* Logon to the AWS console using your student account. Choose the AWS region assigned by your instructor.
 •	Choose the IAM service
 •	In the left navigation pane, choose Roles. 
 •	Choose Create role
