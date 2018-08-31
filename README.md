@@ -4,7 +4,7 @@ Data Analytics Week at the AWS Loft is an opportunity to learn about Amazon’s 
 
 ## Labs
 
-[Redshift Basics](https://github.com/wrbaldwin/da-week/Labs/Redshift-Basics.md) - 
+[Redshift Basics](https://github.com/wrbaldwin/da-week/blob/master/Labs/Redshift-Basics.md) - 
 You'll set up a Redshift cluster, load data from multiple sources, and run analytic queries. You’ll need a laptop with a Firefox or Chrome browser.
 
 
