@@ -8,35 +8,35 @@ Overview
 This lab demonstrates the basic steps required to get started with Amazon Elasticsearch Service: creating clusters, cluster node configurations, storage configurations, and Identity Access Manager (IAM) Policies 
 Topics covered
 By the end of this lab you will be able to:
-•	Deploy an Amazon Elasticsearch Service domain
-•	Create an AWS CloudWatch Log Group
-•	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
-•	Monitor Amazon Elasticsearch Cluster Metrics
+*	Deploy an Amazon Elasticsearch Service domain
+*	Create an AWS CloudWatch Log Group
+*	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
+*	Monitor Amazon Elasticsearch Cluster Metrics
 Prerequisites
-•	Some familiarity with IAM Roles and EC2 Instances is recommended. Previous kowledge of Kibana and Elasticsearch is desirable. 
+*	Some familiarity with IAM Roles and EC2 Instances is recommended. Previous kowledge of Kibana and Elasticsearch is desirable. 
 
-•	Have installed node.js and aws-es-proxy (available via npm). 
+*	Have installed node.js and aws-es-proxy (available via npm). 
 
-•	Have correctly installed and configured the AWS command line interface. See the documentation for instructions.
+*	Have correctly installed and configured the AWS command line interface. See the documentation for instructions.
 Amazon Elasticsearch Service
 Amazon Elasticsearch Service introduction
 Amazon Elasticsearch Service is a managed service that makes it easy to deploy, operate, and scale Elasticsearch in the AWS cloud. Elasticsearch is a popular open-source search and analytics engine for use cases, such as log analytics, real-time application monitoring, click stream analytics, and text search.
 With Amazon Elasticsearch Service, you get direct access to the Elasticsearch open-source API so that existing code and applications will work seamlessly. You can set up and configure your Amazon Elasticsearch cluster in minutes from the AWS Management Console.
 Amazon Elasticsearch Service provisions all the resources for your cluster and launches it. Amazon Elasticsearch Service automatically detects and replaces failed Amazon Elasticsearch nodes, reducing the overhead associated with self-managed infrastructures. You can deploy an Amazon Elasticsearch cluster in minutes using the AWS Management Console. There are no upfront costs to set up Amazon Elasticsearch clusters, and you pay only for the service resources that you use.
 Amazon Elasticsearch Service offers the following benefits of a managed service:
-•	Simple cluster scaling via API
-•	Self-healing clusters
-•	High availability on-demand
-•	Automatic cluster snapshots for data durability
-•	Security
-•	Cluster monitoring
+*	Simple cluster scaling via API
+*	Self-healing clusters
+*	High availability on-demand
+*	Automatic cluster snapshots for data durability
+*	Security
+*	Cluster monitoring
 Prerequisites components of Amazon Elasticsearch Service 
 Amazon Elasticsearch Service contains the following components:
 Domain: An Amazon Elasticsearch domain comprises an Elasticsearch cluster – hardware and software – along with additional hardware and software providing load-balancing, security, and monitoring. The domain is exposed by service endpoints for Amazon Elasticsearch Service, with a name that must meet the following criteria: 
-•	Uniquely identifies a domain within an AWS account
-•	Starts with a letter or number
-•	Contains at least three characters, but not more than 28 characters
-•	Contains only lowercase characters a-z, the numbers 0-9, and the hyphen (-)
+*	Uniquely identifies a domain within an AWS account
+*	Starts with a letter or number
+*	Contains at least three characters, but not more than 28 characters
+*	Contains only lowercase characters a-z, the numbers 0-9, and the hyphen (-)
 Cluster: A cluster is a collection of one or more data nodes, optional dedicated master nodes, and storage required to run Elasticsearch .
 Node:  A node is single instance within an Elasticsearch cluster that has the ability to recognize and process or forward messages to other nodes. 
 Storage:  Amazon Elasticsearch Service supports two distinct storage types, the Instance (default) storage or Elastic Block Store (EBS) – general purpose (SSD), provisioned IOPS (SSD), and magnetic. 
@@ -189,10 +189,10 @@ Use Kibana to visualize your CloudTrail logs
 77.	Click the Discover tab to view the timestamp Logs events.
 Note: By default, we can see logs for the last 15 minutes. You can change the interval by clicking on the small clock symbol in the top right corner.
 These are some of the log attributes that are displayed in the Kibana dashboard:
-•	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
-•	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
-•	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials, this is the access key ID of the temporary credentials.
-•	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides information about the session that was created for those credentials. Sessions are created when any API is called that returns temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include multi-factor authentication.
+*	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
+*	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
+*	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials, this is the access key ID of the temporary credentials.
+*	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides information about the session that was created for those credentials. Sessions are created when any API is called that returns temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include multi-factor authentication.
 78.	Click the disclosure triangle next to one of the search results.
 79.	Scroll down to reveal the fields and values that CloudTrail sends.
 80.	Click   to the right of the awsRegion, eventName, eventSource, eventType, and userIdentity.arn fields.
@@ -252,12 +252,12 @@ This displays the various statistics of the cluster: CPU Utilization, Read Laten
 125.	Click Update graph.
 Conclusion
 Congratulations! You now know how to:
-•	Deploy an Amazon Elasticsearch Service domain
-•	Create an AWS CloudTrail Log Group
-•	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
-•	Monitor Amazon Elasticsearch Cluster Metrics
+*	Deploy an Amazon Elasticsearch Service domain
+*	Create an AWS CloudTrail Log Group
+*	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
+*	Monitor Amazon Elasticsearch Cluster Metrics
 Additional Resources
-•	For more information about Elasticsearch, see  https://aws.amazon.com/elasticsearch-service/ 
-•	For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
-•	For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
+*	For more information about Elasticsearch, see  https://aws.amazon.com/elasticsearch-service/ 
+*	For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
+*	For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
 
