@@ -47,9 +47,9 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* From the AWS Console, choose the Amazon Redshift service, then choose Clusters and click on examplecluster
 	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:
 
-```
+`
 jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev
-```
+`
 
 	* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
 	* In the New profile text box, type a name for the profile. 
@@ -63,7 +63,7 @@ jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:543
  
 6.	Load data and run queries
 	* Copy and execute the following create table statements to create tables in the dev database. 
-```
+`
 create table users(
 	userid integer not null distkey sortkey,
 	username char(8),
@@ -130,16 +130,16 @@ create table sales(
 	pricepaid decimal(8,2),
 	commission decimal(8,2),
 	saletime timestamp);
-```
+`
 
 7.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
 
-```
+`
 arn:aws:iam::011592912233:role/myRedshiftRole 
-```
+`
 
 8.	Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
-```
+`
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
 delimiter '|' region 'us-west-2';
@@ -167,29 +167,29 @@ delimiter '|' region 'us-west-2';
 copy sales from 's3://awssampledbuswest2/tickit/sales_tab.txt'
 credentials 'aws_iam_role=<iam-role-arn>'
 delimiter '\t' timeformat 'MM/DD/YYYY HH:MI:SS' region 'us-west-2';
-```
+`
 
 9.	Run some queries:
 
 * Get definition for the sales table.
-```
+`
 SELECT *    
 FROM pg_table_def    
 WHERE tablename = 'sales';    
-```
+`
 
 * Find total sales on a given calendar date.
 
-```
+`
 SELECT sum(qtysold) 
 FROM   sales, date 
 WHERE  sales.dateid = date.dateid 
 AND    caldate = '2008-01-05';
-```
+`
 
 * Find top 10 buyers by quantity.
 
-```
+`
 SELECT firstname, lastname, total_quantity 
 FROM   (SELECT buyerid, sum(qtysold) total_quantity
         FROM  sales
@@ -197,11 +197,11 @@ FROM   (SELECT buyerid, sum(qtysold) total_quantity
         ORDER BY total_quantity desc limit 10) Q, users
 WHERE Q.buyerid = userid
 ORDER BY Q.total_quantity desc;
-```
+`
 
 * Find events in the 99.9 percentile in terms of all time gross sales.
 
-```
+`
 SELECT eventname, total_price 
 FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile 
        FROM (SELECT eventid, sum(pricepaid) total_price
@@ -210,7 +210,7 @@ FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) 
        WHERE Q.eventid = E.eventid
        AND percentile = 1
 ORDER BY total_price desc;
-```
+`
 
 * Explore the metrics in the Redshift console, especially those in the Query tab.
 
