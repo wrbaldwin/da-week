@@ -1,4 +1,4 @@
-## Data Aalytics Week at the AWS Loft
+# Data Aalytics Week at the AWS Loft
 ## Redshift Basics
 
 In this lab exercise, you will create a Redshift cluster, then use SQL Workbench/J to populate and query it. You will need a Mac or Windows computer with a Firefox or Chrome browser.
