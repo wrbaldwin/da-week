@@ -134,7 +134,7 @@ create table sales(
 	pricepaid decimal(8,2),
 	commission decimal(8,2),
 	saletime timestamp);
-	```
+```
 	* Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
 ```
 arn:aws:iam::011592912233:role/myRedshiftRole 
