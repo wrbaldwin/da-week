@@ -45,18 +45,15 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 
 5.	Connect to your Redshift cluster using SQL Workbench/J
 	* From the AWS Console, choose the Amazon Redshift service, then choose Clusters and click on examplecluster
-	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:
-
-`jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev`
-
-..* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
-..* In the New profile text box, type a name for the profile. 
-..* In the Driver box, choose Amazon Redshift
-..* In the URL box, paste the connection string you copied earlier.
-..* In the Username box, type masteruser
-..* In the Password box, type the password you chose when you created the Redshift cluster
-..* IMPORTANT: be sure to click to Autocommit box
-..* Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
+	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like: (jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev)
+	* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
+	* In the New profile text box, type a name for the profile. 
+	* In the Driver box, choose Amazon Redshift
+	* In the URL box, paste the connection string you copied earlier.
+	* In the Username box, type masteruser
+	* In the Password box, type the password you chose when you created the Redshift cluster
+	* IMPORTANT: be sure to click to Autocommit box
+	* Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
 
  
 6.	Load data and run queries
