@@ -11,57 +11,57 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 
 2.	Create the IAM role you will need to copy S3 objects to Redshift
 	* Logon to the AWS console using your student account. Choose the AWS region assigned by your instructor.
-•	Choose the IAM service
-•	In the left navigation pane, choose Roles. 
-•	Choose Create role
-•	In the AWS Service pane, choose Redshift. 
-•	Under Select your use case, choose Redshift - Customizable then choose Next: Permissions. 
-•	On the Attach permissions policies page, check the box next to AmazonS3ReadOnlyAccess, and then choose Next: Review. 
-•	For Role name, type a name for your role. For this lab, use myRedshiftRole, then choose Create Role. 
-•	Once the role is created, click on myRedshiftRole
-•	Note the Role ARN—this is the Amazon Resource Name (ARN) for the role that you just created. You will need this later.
+	* Choose the IAM service
+	* In the left navigation pane, choose Roles. 
+	* Choose Create role
+	* In the AWS Service pane, choose Redshift. 
+	* Under Select your use case, choose Redshift - Customizable then choose Next: Permissions. 
+	* On the Attach permissions policies page, check the box next to AmazonS3ReadOnlyAccess, and then choose Next: Review. 
+	* For Role name, type a name for your role. For this lab, use myRedshiftRole, then choose Create Role. 
+	* Once the role is created, click on myRedshiftRole
+	* Note the Role ARN—this is the Amazon Resource Name (ARN) for the role that you just created. You will need this later.
 
 3.	Create a Redshift cluster
-•	From the AWS Console, choose the Amazon Redshift service
-•	Choose Launch Cluster
-•	On the Cluster Details page, enter the following values and then choose Continue: 
-o	Cluster Identifier: type examplecluster. 
-o	Database Name: leave this box blank. Amazon Redshift will create a default database named dev. 
-o	Database Port: use the default port for Redshift, 5439
-o	Master User Name: type masteruser. You will use this username and password to connect to your database after the cluster is available. 
-o	Master User Password and Confirm Password: type a password for the master user account. Be sure to follow the rules for passwords. Don’t forget your password (!), and choose Continue
-•	Create a single-node cluster using dc2.large 	and choose Continue
-•	On the Additional Configuration page, use the default VPC and the default Security Group. Leave other settings on their defaults.
-o	For AvailableRoles, choose myRedshiftRole and then choose Continue. 
-•	On the Review page, double-check your choices and choose Launch Cluster. Choose Close to return to the Clusters dashboard.
+	* From the AWS Console, choose the Amazon Redshift service
+	* Choose Launch Cluster
+	* On the Cluster Details page, enter the following values and then choose Continue: 
+	* Cluster Identifier: type examplecluster. 
+	* Database Name: leave this box blank. Amazon Redshift will create a default database named dev. 
+	* Database Port: use the default port for Redshift, 5439
+	* Master User Name: type masteruser. You will use this username and password to connect to your database after the cluster is available. 
+	* Master User Password and Confirm Password: type a password for the master user account. Be sure to follow the rules for passwords. Don’t forget your password (!), and choose Continue
+	* Create a single-node cluster using dc2.large 	and choose Continue
+	* On the Additional Configuration page, use the default VPC and the default Security Group. Leave other settings on their defaults.
+	* For AvailableRoles, choose myRedshiftRole and then choose Continue. 
+	* On the Review page, double-check your choices and choose Launch Cluster. Choose Close to return to the Clusters dashboard.
 
 4.	Authorize your access to the Redshift cluster, by adding a rule to your Security Group
-•	On the Clusters dashboard, click on examplecluster.
-•	Scroll down to find your VPC security groups. Click on your active security group.
-•	On the Security Group pane, click on Inbound
-•	Choose Edit, then Add Rule
-•	Assign a Type of Redshift, which should automatically set the Protocol to TCP and the Port Range to 5439.
-•	Assign a Source of Custom and set the CIDR block to 0.0.0.0/0. Choose Save. [Note: this allows access to your Redshift cluster from any computer on the Internet. Never do this in a production environment!!!]
+	* On the Clusters dashboard, click on examplecluster.
+	* Scroll down to find your VPC security groups. Click on your active security group.
+	* On the Security Group pane, click on Inbound
+	* Choose Edit, then Add Rule
+	* Assign a Type of Redshift, which should automatically set the Protocol to TCP and the Port Range to 5439.
+	* Assign a Source of Custom and set the CIDR block to 0.0.0.0/0. Choose Save. [Note: this allows access to your Redshift cluster from any computer on the Internet. Never do this in a production environment!!!]
 
 5.	Connect to your Redshift cluster using SQL Workbench/J
-•	From the AWS Console, choose the Amazon Redshift service, then choose Clusters and click on examplecluster
-•	Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:
+	* From the AWS Console, choose the Amazon Redshift service, then choose Clusters and click on examplecluster
+	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:
 ```
 jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev
 ```
-•	Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
-•	In the New profile text box, type a name for the profile. 
-•	In the Driver box, choose Amazon Redshift
-•	In the URL box, paste the connection string you copied earlier.
-•	In the Username box, type masteruser
-•	In the Password box, type the password you chose when you created the Redshift cluster
-•	IMPORTANT: be sure to click to Autocommit box
-•	Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
+	* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
+	* In the New profile text box, type a name for the profile. 
+	* In the Driver box, choose Amazon Redshift
+	* In the URL box, paste the connection string you copied earlier.
+	* In the Username box, type masteruser
+	* In the Password box, type the password you chose when you created the Redshift cluster
+	* IMPORTANT: be sure to click to Autocommit box
+	* Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
 
  
 Load data and run queries
-•	Copy and execute the following create table statements to create tables in the dev database. 
-
+	* Copy and execute the following create table statements to create tables in the dev database. 
+```
 create table users(
 	userid integer not null distkey sortkey,
 	username char(8),
@@ -134,13 +134,14 @@ create table sales(
 	pricepaid decimal(8,2),
 	commission decimal(8,2),
 	saletime timestamp);
-•	Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
-
+	```
+	* Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
+```
 arn:aws:iam::011592912233:role/myRedshiftRole 
- 
+```
 
-•	Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
-
+	* Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
+```
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
 delimiter '|' region 'us-west-2';
@@ -168,9 +169,9 @@ delimiter '|' region 'us-west-2';
 copy sales from 's3://awssampledbuswest2/tickit/sales_tab.txt'
 credentials 'aws_iam_role=<iam-role-arn>'
 delimiter '\t' timeformat 'MM/DD/YYYY HH:MI:SS' region 'us-west-2';
+```
 
-
-•	Run some queries:
+	* Run some queries:
 
 -- Get definition for the sales table.
 SELECT *    
@@ -202,6 +203,6 @@ FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) 
        AND percentile = 1
 ORDER BY total_price desc;
  
-•	Explore the metrics in the Redshift console, especially those in the Query tab.
+	* Explore the metrics in the Redshift console, especially those in the Query tab.
 
 
