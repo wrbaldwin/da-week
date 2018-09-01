@@ -12,7 +12,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 2.	Create the IAM role you will need to copy S3 objects to Redshift
 	* Logon to the AWS console using your student account. Choose the AWS region assigned by your instructor.
 	* Choose the IAM service
-	* In the left navigation pane, choose Roles. 
+	* In the left navigation pane, choose **Roles**. 
 	* Choose Create role
 	* In the AWS Service pane, choose Redshift. 
 	* Under Select your use case, choose Redshift - Customizable then choose Next: Permissions. 
@@ -45,7 +45,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 
 5.	Connect to your Redshift cluster using SQL Workbench/J
 	* From the AWS Console, choose the Amazon Redshift service, then choose Clusters and click on examplecluster
-	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like: (jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev)
+	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:  _jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev_
 	* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
 	* In the New profile text box, type a name for the profile. 
 	* In the Driver box, choose Amazon Redshift
