@@ -4,7 +4,7 @@
 In this lab exercise, you will create a Redshift cluster, then use SQL Workbench/J to populate and query it. You will need a Mac or Windows computer with a Firefox or Chrome browser.
 
 1.	Download and install SQL Workbench/J
-  	* You will need Java 8 or higher running on your computer. If you need Java, download and install from http://www.java.com/en/ 
+	* You will need Java 8 or higher running on your computer. If you need Java, download and install from http://www.java.com/en/ 
   	* Download the current Redshift JDBC Driver from https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.10.1009.jar 
   	* Download SQL Workbench/J from http://www.sql-workbench.net/downloads.html and install it. Be sure to click on Manage Drivers (in the lower left corner of the configuration screen) and choose Amazon Redshift and the JDBC Driver you downloaded earlier
   	* At the end of the installation it will be ready to connect to a database – stop when you get this this step, as you have not yet configured a database to use!
@@ -40,30 +40,28 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* Scroll down to find your VPC security groups. Click on your active security group.
 	* On the Security Group pane, click on Inbound
 	* Choose Edit, then Add Rule
-	* Assign a Type of Redshift, which should automatically set the Protocol to TCP and the Port Range to 5439.
+	* Assign a Type of Redshift, which should automatically set the Protocol to TCP and the Port Range to 5439
 	* Assign a Source of Custom and set the CIDR block to 0.0.0.0/0. Choose Save. [Note: this allows access to your Redshift cluster from any computer on the Internet. Never do this in a production environment!!!]
 
 5.	Connect to your Redshift cluster using SQL Workbench/J
 	* From the AWS Console, choose the Amazon Redshift service, then choose Clusters and click on examplecluster
 	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:
 
-`
-jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev
-`
+`jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev`
 
-	* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
-	* In the New profile text box, type a name for the profile. 
-	* In the Driver box, choose Amazon Redshift
-	* In the URL box, paste the connection string you copied earlier.
-	* In the Username box, type masteruser
-	* In the Password box, type the password you chose when you created the Redshift cluster
-	* IMPORTANT: be sure to click to Autocommit box
-	* Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
+* Open SQL Workbench/J. Choose File, and then choose Connect window. Choose Create a new connection profile. 
+* In the New profile text box, type a name for the profile. 
+* In the Driver box, choose Amazon Redshift
+* In the URL box, paste the connection string you copied earlier.
+* In the Username box, type masteruser
+* In the Password box, type the password you chose when you created the Redshift cluster
+* IMPORTANT: be sure to click to Autocommit box
+* Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
 
  
 6.	Load data and run queries
 	* Copy and execute the following create table statements to create tables in the dev database. 
-`
+```
 create table users(
 	userid integer not null distkey sortkey,
 	username char(8),
@@ -130,16 +128,14 @@ create table sales(
 	pricepaid decimal(8,2),
 	commission decimal(8,2),
 	saletime timestamp);
-`
+```
 
 7.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
 
-`
-arn:aws:iam::011592912233:role/myRedshiftRole 
-`
+`arn:aws:iam::011592912233:role/myRedshiftRole`
 
 8.	Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
-`
+```
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
 delimiter '|' region 'us-west-2';
@@ -167,29 +163,29 @@ delimiter '|' region 'us-west-2';
 copy sales from 's3://awssampledbuswest2/tickit/sales_tab.txt'
 credentials 'aws_iam_role=<iam-role-arn>'
 delimiter '\t' timeformat 'MM/DD/YYYY HH:MI:SS' region 'us-west-2';
-`
+```
 
 9.	Run some queries:
 
 * Get definition for the sales table.
-`
+```
 SELECT *    
 FROM pg_table_def    
 WHERE tablename = 'sales';    
-`
+```
 
 * Find total sales on a given calendar date.
 
-`
+```
 SELECT sum(qtysold) 
 FROM   sales, date 
 WHERE  sales.dateid = date.dateid 
 AND    caldate = '2008-01-05';
-`
+```
 
 * Find top 10 buyers by quantity.
 
-`
+```
 SELECT firstname, lastname, total_quantity 
 FROM   (SELECT buyerid, sum(qtysold) total_quantity
         FROM  sales
@@ -197,11 +193,11 @@ FROM   (SELECT buyerid, sum(qtysold) total_quantity
         ORDER BY total_quantity desc limit 10) Q, users
 WHERE Q.buyerid = userid
 ORDER BY Q.total_quantity desc;
-`
+```
 
 * Find events in the 99.9 percentile in terms of all time gross sales.
 
-`
+```
 SELECT eventname, total_price 
 FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile 
        FROM (SELECT eventid, sum(pricepaid) total_price
@@ -210,8 +206,6 @@ FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) 
        WHERE Q.eventid = E.eventid
        AND percentile = 1
 ORDER BY total_price desc;
-`
+```
 
 * Explore the metrics in the Redshift console, especially those in the Query tab.
-
-
