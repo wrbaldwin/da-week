@@ -61,7 +61,7 @@ jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:543
 	* Choose Test. If there are any error messages, do what you need to fix them. If the test succeeds, choose OK.
 
  
-Load data and run queries
+6.	Load data and run queries
 	* Copy and execute the following create table statements to create tables in the dev database. 
 ```
 create table users(
@@ -83,20 +83,17 @@ create table users(
 	likevegas boolean,
 	likebroadway boolean,
 	likemusicals boolean);
-
 create table venue(
 	venueid smallint not null distkey sortkey,
 	venuename varchar(100),
 	venuecity varchar(30),
 	venuestate char(2),
 	venueseats integer);
-
 create table category(
 	catid smallint not null distkey sortkey,
 	catgroup varchar(10),
 	catname varchar(10),
 	catdesc varchar(50));
-
 create table date(
 	dateid smallint not null distkey sortkey,
 	caldate date not null,
@@ -106,7 +103,6 @@ create table date(
 	qtr character(5) not null,
 	year smallint not null,
 	holiday boolean default('N'));
-
 create table event(
 	eventid integer not null distkey,
 	venueid smallint not null,
@@ -114,7 +110,6 @@ create table event(
 	dateid smallint not null sortkey,
 	eventname varchar(200),
 	starttime timestamp);
-
 create table listing(
 	listid integer not null distkey,
 	sellerid integer not null,
@@ -124,7 +119,6 @@ create table listing(
 	priceperticket decimal(8,2),
 	totalprice decimal(8,2),
 	listtime timestamp);
-
 create table sales(
 	salesid integer not null,
 	listid integer not null distkey,
@@ -137,12 +131,14 @@ create table sales(
 	commission decimal(8,2),
 	saletime timestamp);
 ```
-	* Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
+
+7.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
+
 ```
 arn:aws:iam::011592912233:role/myRedshiftRole 
 ```
 
-	* Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
+8.	Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
 ```
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
@@ -173,7 +169,7 @@ credentials 'aws_iam_role=<iam-role-arn>'
 delimiter '\t' timeformat 'MM/DD/YYYY HH:MI:SS' region 'us-west-2';
 ```
 
-6. Run some queries:
+9.	Run some queries:
 
 * Get definition for the sales table.
 ```
