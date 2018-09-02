@@ -301,13 +301,13 @@ This shows you the documents that have been uploaded to Kibana. Click the drop-d
 124.	From the Statistic drop-down list, select **Maximum**.
 125.	Click **Update graph**.
 ## **Conclusion**
-    Congratulations! You now know how to:
-        *	Deploy an Amazon Elasticsearch Service domain
-        *	Create an AWS CloudTrail Log Group
-        *	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
-        *	Monitor Amazon Elasticsearch Cluster Metrics
-    Additional Resources
-        *	For more information about Elasticsearch, see  https://aws.amazon.com/elasticsearch-service/ 
-        *	For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
-        *	For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
+   Congratulations! You now know how to:
+       *	Deploy an Amazon Elasticsearch Service domain
+       *	Create an AWS CloudTrail Log Group
+       *	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
+       *	Monitor Amazon Elasticsearch Cluster Metrics
+   Additional Resources
+       *	For more information about Elasticsearch, see  https://aws.amazon.com/elasticsearch-service/ 
+       *	For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
+       *	For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
 
