@@ -1,17 +1,16 @@
-## Data Analytics Week
+# Data Analytics Week at the AWS Loft
 
-## Hands-on Lab: Log Analytics 
+## Log Analytics 
 
-Introduction
-
-Overview
 This lab demonstrates the basic steps required to get started with Amazon Elasticsearch Service: creating clusters, cluster node configurations, storage configurations, and Identity Access Manager (IAM) Policies 
-Topics covered
+
+
 By the end of this lab you will be able to:
 *	Deploy an Amazon Elasticsearch Service domain
 *	Create an AWS CloudWatch Log Group
 *	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
 *	Monitor Amazon Elasticsearch Cluster Metrics
+
 Prerequisites
 *	Some familiarity with IAM Roles and EC2 Instances is recommended. Previous kowledge of Kibana and Elasticsearch is desirable. 
 
