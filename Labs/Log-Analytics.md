@@ -90,29 +90,29 @@ __The service can take ten minutes to deploy. While waiting for the service to d
 
 ### **Use Kibana to visualize your CloudTrail logs**
 
-1.	Return to the **Elasticsearch Service** browser tab you initially opened.
-67.	Return to the **Elasticsearch Service** dashboard.
-68.	In the left navigation pane, click **mytestdomain**.
-69.	Copy your domain’s **Endpoint**.
-70.	Run **aws-es-proxy** on your laptop, using the **endpoint** from the last step.
-71.	In your browser, navigate to http://localhost:9200/_plugin/kibana
-72.	In the top right, click **Set up index patterns**.
+OPEN KIBANA
+Under **Manage and Administer the Elastic Stack** click **Index Patterns**
+
 73.	In the **Index Pattern** text box, type the index name or copy-paste from below (it has the format: cwl-YYYY.DD.MM). 
+
 74.	Click **Next Step**.
+
 75.	Drop down the **Time Filter field name**, and select **@timestamp**.
 76.	Click Create **Index Pattern**.
 77.	Click the **Discover** tab to view the timestamp Logs events.
 Note: By default, we can see logs for the last 15 minutes. You can change the interval by clicking on the small clock symbol in the top right corner.
+
 These are some of the log attributes that are displayed in the Kibana dashboard:
     *	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this    value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
     *	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary      security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
     *	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials,     this is the access key ID of the temporary credentials.
     *	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides        information about the session that was created for those credentials. Sessions are created when any API is called that returns          temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include    multi-factor authentication.
+
 78.	Click the disclosure triangle next to one of the search results.
 79.	Scroll down to reveal the fields and values that CloudTrail sends.
-80.	Click   to the right of the **awsRegion**, **eventName**, **eventSource**, **eventType**, and **userIdentity.arn** fields.
+80.	Click the 3rd icon to the right of the **awsRegion**, **eventName**, **eventSource**, **eventType**, and **userIdentity.arn** fields.
 81.	Scroll to the top of the list and you will see column headers for the fields you selected, along with the first row of values. Click the disclosure triangle at the left edge of the first row of values to collapse it and see the data in tabular form.
-82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the <zoom out> next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
+82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the <zoom out icon> next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
 83.	Kibana shows you your current filters at the top of the page, right below the search bar.
 ![screen](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/log-analytics-83.png)
     
