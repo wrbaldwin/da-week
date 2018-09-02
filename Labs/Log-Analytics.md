@@ -240,7 +240,8 @@ These are some of the log attributes that are displayed in the Kibana dashboard:
 81.	Scroll to the top of the list and you will see column headers for the fields you selected, along with the first row of values. Click the disclosure triangle at the left edge of the first row of values to collapse it and see the data in tabular form.
 82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the <zoom out> next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
 83.	Kibana shows you your current filters at the top of the page, right below the search bar.
- 
+![screen](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/log-analytics-83.png)
+    
 84.	If you hover over the filter, you will see additional controls, including a trash basket you can use to remove the filter.
 
 ### **Create a visualization**
