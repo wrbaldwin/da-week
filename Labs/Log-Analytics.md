@@ -18,115 +18,152 @@ Prerequisites
 *	Have installed node.js and aws-es-proxy (available via npm). 
 
 *	Have correctly installed and configured the AWS command line interface. See the documentation for instructions.
-Amazon Elasticsearch Service
-Amazon Elasticsearch Service introduction
+##**Amazon Elasticsearch Service**
+###**Amazon Elasticsearch Service introduction**
 Amazon Elasticsearch Service is a managed service that makes it easy to deploy, operate, and scale Elasticsearch in the AWS cloud. Elasticsearch is a popular open-source search and analytics engine for use cases, such as log analytics, real-time application monitoring, click stream analytics, and text search.
+
 With Amazon Elasticsearch Service, you get direct access to the Elasticsearch open-source API so that existing code and applications will work seamlessly. You can set up and configure your Amazon Elasticsearch cluster in minutes from the AWS Management Console.
+
 Amazon Elasticsearch Service provisions all the resources for your cluster and launches it. Amazon Elasticsearch Service automatically detects and replaces failed Amazon Elasticsearch nodes, reducing the overhead associated with self-managed infrastructures. You can deploy an Amazon Elasticsearch cluster in minutes using the AWS Management Console. There are no upfront costs to set up Amazon Elasticsearch clusters, and you pay only for the service resources that you use.
+
 Amazon Elasticsearch Service offers the following benefits of a managed service:
+
 *	Simple cluster scaling via API
 *	Self-healing clusters
 *	High availability on-demand
 *	Automatic cluster snapshots for data durability
 *	Security
 *	Cluster monitoring
-Prerequisites components of Amazon Elasticsearch Service 
+
+###**Prerequisites components of Amazon Elasticsearch Service** 
+
 Amazon Elasticsearch Service contains the following components:
-Domain: An Amazon Elasticsearch domain comprises an Elasticsearch cluster – hardware and software – along with additional hardware and software providing load-balancing, security, and monitoring. The domain is exposed by service endpoints for Amazon Elasticsearch Service, with a name that must meet the following criteria: 
+
+**Domain**: An Amazon Elasticsearch domain comprises an Elasticsearch cluster – hardware and software – along with additional hardware and software providing load-balancing, security, and monitoring. The domain is exposed by service endpoints for Amazon Elasticsearch Service, with a name that must meet the following criteria: 
+
 *	Uniquely identifies a domain within an AWS account
 *	Starts with a letter or number
 *	Contains at least three characters, but not more than 28 characters
 *	Contains only lowercase characters a-z, the numbers 0-9, and the hyphen (-)
-Cluster: A cluster is a collection of one or more data nodes, optional dedicated master nodes, and storage required to run Elasticsearch .
-Node:  A node is single instance within an Elasticsearch cluster that has the ability to recognize and process or forward messages to other nodes. 
-Storage:  Amazon Elasticsearch Service supports two distinct storage types, the Instance (default) storage or Elastic Block Store (EBS) – general purpose (SSD), provisioned IOPS (SSD), and magnetic. 
-Related Services
+
+**Cluster**: A cluster is a collection of one or more data nodes, optional dedicated master nodes, and storage required to run Elasticsearch.
+
+**Node**:  A node is single instance within an Elasticsearch cluster that has the ability to recognize and process or forward messages to other nodes.
+
+**Storage**:  Amazon Elasticsearch Service supports two distinct storage types, the Instance (default) storage or Elastic Block Store (EBS) – general purpose (SSD), provisioned IOPS (SSD), and magnetic. 
+
+###**Related Services**
+
 Amazon Elasticsearch Service is commonly used with the following services:
-AWS CloudTrail
+
+**AWS CloudTrail**
+
 Use AWS CloudTrail to get a history of the Amazon Elasticsearch Service API calls and related events for your account. CloudTrail is a web service that records API calls from your accounts and delivers the resulting log files to your Amazon S3 bucket. You can also use CloudTrail to track changes that were made to your AWS resources.
-Amazon CloudWatch
+
+**Amazon CloudWatch**
+
 An Elasticsearch domain automatically sends metrics to Amazon CloudWatch so that you can gather and analyze performance statistics. You can monitor these metrics by using the AWS CLI or the AWS SDKs. You can also easily subscribe a CloudWatch Logs log group to an Amazon Elasticsearch Service domain to load the data in that log group into Amazon ES.
-Amazon Kinesis
+
+**Amazon Kinesis**
+
 Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming data at a massive scale. Amazon Elasticsearch Service provides Lambda sample code for integration with Kinesis.
-Amazon S3
+
+**Amazon S3**
+
 Amazon Simple Storage Service (Amazon S3) is storage for the Internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. Amazon Elasticsearch Service provides Lambda sample code for integration with S3.
-AWS Identity and Access Management (IAM)
+
+**AWS Identity and Access Management (IAM)**
+
 AWS Identity and Access Management (IAM) is a web service that you can use to manage users and user permissions in AWS. Use IAM to create user-based or IP-based access policies for your Amazon Elasticsearch Service domains.
-Amazon Elasticsearch Service Integration with Other Services 
+
+###**Amazon Elasticsearch Service Integration with Other Services**
+
 Amazon Elasticsearch Service integrates with the following services to provide data ingestion:
-AWS Lambda
+
+**AWS Lambda**
+
 AWS Lambda is a zero-administration compute platform for back-end web developers that runs your code in the AWS cloud and provides you with a fine-grained pricing structure. Amazon Elasticsearch Service provides sample code to run on Lambda that integrates with Amazon Kinesis and Amazon S3.
-Amazon DynamoDB
-Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. Amazon Elasticsearch Service provides a Logstash plugin to support DynamoDB streams and sign AWS service requests. 
-Create and Test an Amazon Elasticsearch Domain
-Deploy an Amazon Elasticsearch Service Domain
-1.	In the AWS Management Console, click Elasticsearch Service.
-2.	Click Get Started or Create a new domain depending on whether you have an existing domain.
-3.	In Step 1: Elasticsearch domain name, type mytestdomain into the box, and click Next.
-4.	In Step 2: Configure cluster page, under the Node configuration section, select the following information from the drop-down lists:
-a.	In the Instance count text box, leave 1 (the default).
-This is the number of instances that you wish to deploy with your cluster.
-b.	In the Instance type section, select t2.small.elasticsearch (free tier eligible).
-When you launch an instance, the instance type that you specify determines the hardware of the host computer used for your instance. Each instance type offers different compute, memory, and storage capabilities.
-c.	Do not select Enable dedicated master.
-A dedicated master node is a cluster node that performs cluster management tasks, but does not hold data or respond to data upload requests. This offloading of cluster management tasks increases the stability of your Amazon Elasticsearch clusters. We recommend that you avoid allocating dedicated master nodes for all small and short-lived Amazon Elasticsearch domains.
-d.	Do not select Enable zone awareness.
-If you enable zone awareness, you should use Amazon Elasticsearch API to set up replicas for your cluster. Amazon Elasticsearch Service will distribute replicas across the nodes in Availability Zones. This will increase the availability of your cluster.   
-5.	In the Storage Configuration section, select the following information from the drop-down lists:
-a.	Storape 	EBS
-Elasticsearch provides two different storage option types: Instance store and Elastic Block Store (EBS). 
-b.	EBS volume type	General Purpose (SSD)
-General Purpose (SSD) storage is suitable for a wide variety of database workloads that have moderate I/O requirements. The baseline of 3 IOPS per GB and the ability to burst up to 3,000 IOPS will provide you with predictable performance well-suited to many applications.
-c.	EBS volume size	10
-Amazon EBS provides durable, block-level storage volumes that you can attach to a running instance. You can use Amazon EBS as a primary storage device for data that requires frequent and granular updates.
-6.	In the Snapshot configuration section, select the following from the drop-down lists:
-a.	Automated snapshots start hour	00:00 UTC (default)
-7.	In the Advanced options section, leave the values at the default settings. 
-8.	Click Next.
-9.	In the Step 3: Set up access page, select the following from the drop-down lists:
-a.	Select the radio button for Public access.
-Public access domains have public IPs for their endpoints, resolved through DNS. 
-b.	Under Access policy, select Allow or deny access to one or more AWS accounts or IAM users from the drop down menu.
-c.	In the resulting dialog
-i.	Set the “Account ID or ARN” to:	Your AWS account ID
-ii.	Click OK.
-10.	Click Next.
-11.	Review the system configuration, and click Confirm.
-Note: The service can take ten minutes to deploy. While waiting for the service to deploy, you can complete the steps in the next section. 
-Create a CloudTrail Log Group for Amazon Elasticsearch Service
-12.	Click Services.
-13.	Under Management Tools, right-click CloudTrail, and click Open link in new tab.
-Note: This allows you to keep the Elasticsearch dashboard open so you can monitor the cluster creation progress. 
-14.	Hide the Services drop-down menu by clicking the icon below.
+
+**Amazon DynamoDB**
+
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. Amazon Elasticsearch Service provides a Logstash plugin to support DynamoDB streams and sign AWS service requests.
+
+##**Create and Test an Amazon Elasticsearch Domain**
+
+**Deploy an Amazon Elasticsearch Service Domain**
+
+1.	In the AWS Management Console, click **Elasticsearch Service**.
+2.	Click **Get Started** or **Create a new domain** depending on whether you have an existing domain.
+3.	In **Step 1: Elasticsearch domain name**, type **mytestdomain** into the box, and click **Next**.
+4.	In **Step 2: Configure cluster page**, under the **Node configuration section**, select the following information from the drop-down lists:
+    a.	In the **Instance count** text box, leave **1** (the default).
+       This is the number of instances that you wish to deploy with your cluster.
+    b.	In the **Instance type** section, select **t2.small.elasticsearch** (free tier eligible).
+       When you launch an instance, the instance type that you specify determines the hardware of the host computer used for your              instance. Each instance type offers different compute, memory, and storage capabilities.
+       c.	Do not select **Enable dedicated master**.
+       A dedicated master node is a cluster node that performs cluster management tasks, but does not hold data or respond to data              upload requests. This offloading of cluster management tasks increases the stability of your Amazon Elasticsearch clusters. We          recommend that you avoid allocating dedicated master nodes for all small and short-lived Amazon Elasticsearch domains.
+    d.	Do not select **Enable zone awareness**.
+       If you enable zone awareness, you should use Amazon Elasticsearch API to set up replicas for your cluster. Amazon Elasticsearch          Service will distribute replicas across the nodes in Availability Zones. This will increase the availability of your cluster.   
+5.	In the **Storage Configuration** section, select the following information from the drop-down lists:
+    a.	**Storape 	EBS**
+       Elasticsearch provides two different storage option types: Instance store and Elastic Block Store (EBS). 
+    b.	**EBS volume type	General Purpose (SSD)**
+       General Purpose (SSD) storage is suitable for a wide variety of database workloads that have moderate I/O requirements. The              baseline of 3 IOPS per GB and the ability to burst up to 3,000 IOPS will provide you with predictable performance well-suited to        many applications.
+    c.	**EBS volume size	10**
+       Amazon EBS provides durable, block-level storage volumes that you can attach to a running instance. You can use Amazon EBS as a          primary storage device for data that requires frequent and granular updates.
+6.	In the **Snapshot configuration** section, select the following from the drop-down lists:
+    a.	**Automated snapshots start hour	00:00 UTC (default)**
+7.	In the **Advanced options** section, leave the values at the default settings. 
+8.	Click **Next**.
+9.	In the **Step 3: Set up access** page, select the following from the drop-down lists:
+    a.	Select the radio button for **Public access**.
+    Public access domains have public IPs for their endpoints, resolved through DNS. 
+    b.	Under **Access policy**, select **Allow or deny access to one or more AWS accounts or IAM users** from the drop down menu.
+    c.	**In the resulting dialog**
+        i.	**Set the “Account ID or ARN” to:	Your AWS account ID**
+        ii.	Click **OK**.
+10.	Click **Next**.
+11.	Review the system configuration, and click **Confirm**.
+    Note: The service can take ten minutes to deploy. While waiting for the service to deploy, you can complete the steps in the next       section. 
+###**Create a CloudTrail Log Group for Amazon Elasticsearch Service**
+
+12.	Click **Services**.
+13.	Under **Management Tools**, right-click **CloudTrail**, and click **Open link in new tab**.
+    Note: This allows you to keep the Elasticsearch dashboard open so you can monitor the cluster creation progress. 
+14.	Hide the **Services** drop-down menu by clicking the icon below.
  
-15.	Switch to the new tab, and click Trails in the left navigation pane.
-16.	Click Create trail.
-17.	Name the trail mytestdomain-trail.
-18.	Leave Apply trail to all regions set to Yes.
-19.	Leave Management events set to All.
-20.	Skip the Data events section.
-21.	Under Storage location type mytestdomain-s3 as the S3 Bucket.
-22.	Skip the Advanced section.
-23.	Click Create.
-24.	You will be returned to the CloudTrail dashboard. Click mytestdomain-trail to open the configuration page.
-25.	Scroll down to the CloudWatch Logs section.
+15.	Switch to the new tab, and click **Trails** in the left navigation pane.
+16.	Click **Create trail**.
+17.	Name the trail **mytestdomain-trail**.
+18.	Leave **Apply trail to all regions** set to **Yes**.
+19.	Leave **Management events** set to **All**.
+20.	Skip the **Data events** section.
+21.	Under **Storage location** type **mytestdomain-s3** as the **S3 Bucket**.
+22.	Skip the **Advanced** section.
+23.	Click **Create**.
+24.	You will be returned to the CloudTrail dashboard. Click **mytestdomain-trail** to open the configuration page.
+25.	Scroll down to the **CloudWatch Logs** section.
 26.	Under CloudWatch Logs, click Configure.
-Note: If the Configure button is not visible, click the pencil icon to open the log creation wizard.
+    Note: If the **Configure** button is not visible, click the pencil icon to open the log creation wizard.
  
-27.	In the New or existing log group* text box, delete the existing text, and enter CloudTrail/mytestdomain-trail.
-28.	Click Continue. This will bring you to the IAM console, to enable CloudTrail to write to CloudWatch Logs.
-29.	Click Allow.
-Note: Wait until the console returns to the CloudTrail Configuration page. To generate more CloudTrail log data, view some of the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
-Create an IAM role for Lambda to write to Amazon ES
+27.	In the **New or existing log group** text box, delete the existing text, and enter **CloudTrail/mytestdomain-trail**.
+28.	Click **Continue**. This will bring you to the IAM console, to enable CloudTrail to write to CloudWatch Logs.
+29.	Click **Allow**.
+    Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of       the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While           CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
+
+###**Create an IAM role for Lambda to write to Amazon ES**
+
 This is a workaround for a current bug in the console.
-30.	Navigate to the IAM console.
 
-31.	Click the Policies tab in the left navigation window
+30.	Navigate to the **IAM** console.
+
+31.	Click the **Policies** tab in the left navigation window
 
 
-32.	Click Create policy.
-33.	Click the JSON tab
+32.	Click **Create policy**.
+33.	Click the **JSON** tab
 34.	Paste the following
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -139,42 +176,46 @@ This is a workaround for a current bug in the console.
         }
     ]
 }
-
-35.	Click Review policy.
-36.	Name the policy PostToAllAmazonESDomains.
-37.	Click Create policy.
-38.	Select the Roles tab in the left navigation pane.
-39.	Click Create role.
-40.	Leave AWS service selected under Select type of trusted entity.
-41.	Select Lambda as the service that will use this role.
-42.	Click Next: Permissions.
-43.	Type PostToAllAmazonESDomains in the search box.
+```
+35.	Click **Review** policy.
+36.	Name the policy **PostToAllAmazonESDomains**.
+37.	Click **Create policy**.
+38.	Select the **Roles** tab in the left navigation pane.
+39.	Click **Create role**.
+40.	Leave **AWS service** selected under **Select type of trusted entity**.
+41.	Select **Lambda** as the **service that will use this role**.
+42.	Click **Next: Permissions**.
+43.	Type **PostToAllAmazonESDomains** in the search box.
 44.	Click the check mark next to the policy in the search results.
-45.	Click Next: Review.
-46.	Set the Role name to PostToAllAmazonESDomains
-47.	Click Create role.
-Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service
-48.	Switch back to the Elasticsearch dashboard browser tab and wait until the mytestdomain cluster Domain status changes to Active. 
-Note: Here is a link to some additional reading while waiting for the cluster to go Active:
-http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/what-is-amazon-elasticsearch-service.html 
-49.	Enter the CloudWatch dashboard by clicking Services.
-50.	Under Management Tools, right-click CloudWatch.
-51.	Switch to the CloudWatch Logs tab in your browser and click Logs in the left navigation pane. 
-52.	In the Log Groups page, tick the Log Group box you just created, CloudTrail/mytestdomain-trail.
-53.	Click the Actions drop-down list, and select Stream to Amazon Elasticsearch Service.
-54.	In the Amazon ES Cluster* drop-down list, select the Amazon Elasticsearch Cluster that was created earlier, mytestdomain.
-55.	In the Lambda IAM Execution Role drop-down list, select Create new IAM role, and click Allow. [Workaround: choose the role you created above]
-56.	Click Next.
-57.	In the Log Format drop-down list, select AWS CloudTrail.
-58.	Ignore the Subscription Filter Pattern section. This is not required for this exercise.
-59.	In the Select Log Data to Test section, click Test Pattern. You should see 50 matches under Results.
-60.	Click Next.
-61.	Review and click Next again.
-62.	Click Start Streaming.
-63.	A Success page should now be displayed informing you of the service activation.
-64.	Click Close.
+45.	Click **Next: Review**.
+46.	Set the **Role name** to **PostToAllAmazonESDomains**
+47.	Click **Create role**.
+
+###**Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
+
+48.	Switch back to the Elasticsearch dashboard browser tab and wait until the mytestdomain cluster Domain **status** changes to **Active**. 
+    Note: Here is a link to some additional reading while waiting for the cluster to go Active:
+    http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/what-is-amazon-elasticsearch-service.html 
+49.	Enter the **CloudWatch** dashboard by clicking **Services**.
+50.	Under **Management Tools**, right-click **CloudWatch**.
+51.	Switch to the CloudWatch Logs tab in your browser and click **Logs** in the left navigation pane. 
+52.	In the **Log Groups** page, tick the Log Group box you just created, **CloudTrail/mytestdomain-trail**.
+53.	Click the **Actions** drop-down list, and select **Stream to Amazon Elasticsearch Service**.
+54.	In the **Amazon ES Cluster** drop-down list, select the Amazon Elasticsearch Cluster that was created earlier, **mytestdomain**.
+55.	In the **Lambda IAM Execution Role** drop-down list, select **Create new IAM role**, and click **Allow**. [Workaround: choose the role you created above]
+56.	Click **Next**.
+57.	In the **Log Format** drop-down list, select **AWS CloudTrail**.
+58.	Ignore the **Subscription Filter Pattern** section. This is not required for this exercise.
+59.	In the **Select Log Data to Test** section, click **Test Pattern**. You should see 50 matches under Results.
+60.	Click **Next**.
+61.	Review and click **Next** again.
+62.	Click **Start Streaming**.
+63.	A **Success** page should now be displayed informing you of the service activation.
+64.	Click **Close**.
 65.	Close the current browser tab.
+
 Use Kibana to visualize your CloudTrail logs
+
 66.	Return to the Elasticsearch Service browser tab you initially opened.
 67.	Return to the Elasticsearch Service dashboard.
 68.	In the left navigation pane, click mytestdomain.
