@@ -16,76 +16,7 @@ Prerequisites
 
 *	Have installed node.js and aws-es-proxy (available via npm). 
 
-*	Have correctly installed and configured the AWS command line interface. See the documentation for instructions.
-## **Amazon Elasticsearch Service**
-### **Amazon Elasticsearch Service introduction**
-Amazon Elasticsearch Service is a managed service that makes it easy to deploy, operate, and scale Elasticsearch in the AWS cloud. Elasticsearch is a popular open-source search and analytics engine for use cases, such as log analytics, real-time application monitoring, click stream analytics, and text search.
-
-With Amazon Elasticsearch Service, you get direct access to the Elasticsearch open-source API so that existing code and applications will work seamlessly. You can set up and configure your Amazon Elasticsearch cluster in minutes from the AWS Management Console.
-
-Amazon Elasticsearch Service provisions all the resources for your cluster and launches it. Amazon Elasticsearch Service automatically detects and replaces failed Amazon Elasticsearch nodes, reducing the overhead associated with self-managed infrastructures. You can deploy an Amazon Elasticsearch cluster in minutes using the AWS Management Console. There are no upfront costs to set up Amazon Elasticsearch clusters, and you pay only for the service resources that you use.
-
-Amazon Elasticsearch Service offers the following benefits of a managed service:
-
-*	Simple cluster scaling via API
-*	Self-healing clusters
-*	High availability on-demand
-*	Automatic cluster snapshots for data durability
-*	Security
-*	Cluster monitoring
-
-### **Prerequisites components of Amazon Elasticsearch Service** 
-
-Amazon Elasticsearch Service contains the following components:
-
-**Domain**: An Amazon Elasticsearch domain comprises an Elasticsearch cluster – hardware and software – along with additional hardware and software providing load-balancing, security, and monitoring. The domain is exposed by service endpoints for Amazon Elasticsearch Service, with a name that must meet the following criteria: 
-
-*	Uniquely identifies a domain within an AWS account
-*	Starts with a letter or number
-*	Contains at least three characters, but not more than 28 characters
-*	Contains only lowercase characters a-z, the numbers 0-9, and the hyphen (-)
-
-**Cluster**: A cluster is a collection of one or more data nodes, optional dedicated master nodes, and storage required to run Elasticsearch.
-
-**Node**:  A node is single instance within an Elasticsearch cluster that has the ability to recognize and process or forward messages to other nodes.
-
-**Storage**:  Amazon Elasticsearch Service supports two distinct storage types, the Instance (default) storage or Elastic Block Store (EBS) – general purpose (SSD), provisioned IOPS (SSD), and magnetic. 
-
-### **Related Services**
-
-Amazon Elasticsearch Service is commonly used with the following services:
-
-**AWS CloudTrail**
-
-Use AWS CloudTrail to get a history of the Amazon Elasticsearch Service API calls and related events for your account. CloudTrail is a web service that records API calls from your accounts and delivers the resulting log files to your Amazon S3 bucket. You can also use CloudTrail to track changes that were made to your AWS resources.
-
-**Amazon CloudWatch**
-
-An Elasticsearch domain automatically sends metrics to Amazon CloudWatch so that you can gather and analyze performance statistics. You can monitor these metrics by using the AWS CLI or the AWS SDKs. You can also easily subscribe a CloudWatch Logs log group to an Amazon Elasticsearch Service domain to load the data in that log group into Amazon ES.
-
-**Amazon Kinesis**
-
-Amazon Kinesis is a managed service that scales elastically for real-time processing of streaming data at a massive scale. Amazon Elasticsearch Service provides Lambda sample code for integration with Kinesis.
-
-**Amazon S3**
-
-Amazon Simple Storage Service (Amazon S3) is storage for the Internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. Amazon Elasticsearch Service provides Lambda sample code for integration with S3.
-
-**AWS Identity and Access Management (IAM)**
-
-AWS Identity and Access Management (IAM) is a web service that you can use to manage users and user permissions in AWS. Use IAM to create user-based or IP-based access policies for your Amazon Elasticsearch Service domains.
-
-### **Amazon Elasticsearch Service Integration with Other Services**
-
-Amazon Elasticsearch Service integrates with the following services to provide data ingestion:
-
-**AWS Lambda**
-
-AWS Lambda is a zero-administration compute platform for back-end web developers that runs your code in the AWS cloud and provides you with a fine-grained pricing structure. Amazon Elasticsearch Service provides sample code to run on Lambda that integrates with Amazon Kinesis and Amazon S3.
-
-**Amazon DynamoDB**
-
-Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. Amazon Elasticsearch Service provides a Logstash plugin to support DynamoDB streams and sign AWS service requests.
+*	Have correctly installed and configured the AWS command line interface. See [this documentation](https://aws.amazon.com/cli/) for instructions.
 
 ## **Create and Test an Amazon Elasticsearch Domain**
 
