@@ -20,11 +20,15 @@ In this lab exercise, you will set up a QuickSight account, then visualize the d
 *	Choose **New Analysis**, then **New Data Set**
 * Select Redshift Auto-discovered
 *	In the New Redshift data source panel, enter:
-*	Data source name = myRedshiftData
-*	Instance ID = examplecluster
-*	Database name = dev
-*	Username = masteruser
-*	Password = __the password you created for Redshft__
+
+```
+Data source name = myRedshiftData
+Instance ID = examplecluster
+Database name = dev
+Username = masteruser
+Password = __the password you created for Redshft__
+```
+
 *	Choose **Create data source**
 *	In the Choose your table panel, select none of the tables and choose **Edit/Preview Data**
  
