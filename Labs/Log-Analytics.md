@@ -39,7 +39,7 @@ Advanced options:               leave the values at the default settings
 Network configuration:          Public Access
 Kibana authentication:          unchecked
 Access policy:                  Allow access to the domain from specific IP(s)
-IP address:                     In a new tab, type **My IP** and use your IP address
+IP address:                     Your IP Address (in a new tab you can type My IP to find your IP address)
 
 ```
 
