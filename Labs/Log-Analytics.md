@@ -18,8 +18,8 @@ Prerequisites
 *	Have installed node.js and aws-es-proxy (available via npm). 
 
 *	Have correctly installed and configured the AWS command line interface. See the documentation for instructions.
-##**Amazon Elasticsearch Service**
-###**Amazon Elasticsearch Service introduction**
+## **Amazon Elasticsearch Service**
+### **Amazon Elasticsearch Service introduction**
 Amazon Elasticsearch Service is a managed service that makes it easy to deploy, operate, and scale Elasticsearch in the AWS cloud. Elasticsearch is a popular open-source search and analytics engine for use cases, such as log analytics, real-time application monitoring, click stream analytics, and text search.
 
 With Amazon Elasticsearch Service, you get direct access to the Elasticsearch open-source API so that existing code and applications will work seamlessly. You can set up and configure your Amazon Elasticsearch cluster in minutes from the AWS Management Console.
@@ -35,7 +35,7 @@ Amazon Elasticsearch Service offers the following benefits of a managed service:
 *	Security
 *	Cluster monitoring
 
-###**Prerequisites components of Amazon Elasticsearch Service** 
+### **Prerequisites components of Amazon Elasticsearch Service** 
 
 Amazon Elasticsearch Service contains the following components:
 
@@ -52,7 +52,7 @@ Amazon Elasticsearch Service contains the following components:
 
 **Storage**:  Amazon Elasticsearch Service supports two distinct storage types, the Instance (default) storage or Elastic Block Store (EBS) – general purpose (SSD), provisioned IOPS (SSD), and magnetic. 
 
-###**Related Services**
+### **Related Services**
 
 Amazon Elasticsearch Service is commonly used with the following services:
 
@@ -76,7 +76,7 @@ Amazon Simple Storage Service (Amazon S3) is storage for the Internet. You can u
 
 AWS Identity and Access Management (IAM) is a web service that you can use to manage users and user permissions in AWS. Use IAM to create user-based or IP-based access policies for your Amazon Elasticsearch Service domains.
 
-###**Amazon Elasticsearch Service Integration with Other Services**
+### **Amazon Elasticsearch Service Integration with Other Services**
 
 Amazon Elasticsearch Service integrates with the following services to provide data ingestion:
 
@@ -88,7 +88,7 @@ AWS Lambda is a zero-administration compute platform for back-end web developers
 
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. Amazon Elasticsearch Service provides a Logstash plugin to support DynamoDB streams and sign AWS service requests.
 
-##**Create and Test an Amazon Elasticsearch Domain**
+## **Create and Test an Amazon Elasticsearch Domain**
 
 **Deploy an Amazon Elasticsearch Service Domain**
 
@@ -125,7 +125,7 @@ Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
 10.	Click **Next**.
 11.	Review the system configuration, and click **Confirm**.
     Note: The service can take ten minutes to deploy. While waiting for the service to deploy, you can complete the steps in the next       section. 
-###**Create a CloudTrail Log Group for Amazon Elasticsearch Service**
+### **Create a CloudTrail Log Group for Amazon Elasticsearch Service**
 
 12.	Click **Services**.
 13.	Under **Management Tools**, right-click **CloudTrail**, and click **Open link in new tab**.
@@ -151,7 +151,7 @@ Amazon DynamoDB is a fully managed NoSQL database service that provides fast and
 29.	Click **Allow**.
     Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of       the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While           CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
 
-###**Create an IAM role for Lambda to write to Amazon ES**
+### **Create an IAM role for Lambda to write to Amazon ES**
 
 This is a workaround for a current bug in the console.
 
@@ -191,7 +191,7 @@ This is a workaround for a current bug in the console.
 46.	Set the **Role name** to **PostToAllAmazonESDomains**
 47.	Click **Create role**.
 
-###**Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
+### **Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
 
 48.	Switch back to the Elasticsearch dashboard browser tab and wait until the mytestdomain cluster Domain **status** changes to **Active**. 
     Note: Here is a link to some additional reading while waiting for the cluster to go Active:
@@ -214,31 +214,31 @@ This is a workaround for a current bug in the console.
 64.	Click **Close**.
 65.	Close the current browser tab.
 
-Use Kibana to visualize your CloudTrail logs
+### **Use Kibana to visualize your CloudTrail logs**
 
-66.	Return to the Elasticsearch Service browser tab you initially opened.
-67.	Return to the Elasticsearch Service dashboard.
-68.	In the left navigation pane, click mytestdomain.
-69.	Copy your domain’s Endpoint.
-70.	Run aws-es-proxy on your laptop, using the endpoint from the last step.
+66.	Return to the **Elasticsearch Service** browser tab you initially opened.
+67.	Return to the **Elasticsearch Service** dashboard.
+68.	In the left navigation pane, click **mytestdomain**.
+69.	Copy your domain’s **Endpoint**.
+70.	Run **aws-es-proxy** on your laptop, using the **endpoint** from the last step.
 71.	In your browser, navigate to http://localhost:9200/_plugin/kibana
-72.	In the top right, click Set up index patterns.
-73.	In the Index Pattern text box, type the index name or copy-paste from below (it has the format: cwl-YYYY.DD.MM). 
-74.	Click Next Step.
-75.	Drop down the Time Filter field name, and select @timestamp.
-76.	Click Create Index Pattern.
-77.	Click the Discover tab to view the timestamp Logs events.
+72.	In the top right, click **Set up index patterns**.
+73.	In the **Index Pattern** text box, type the index name or copy-paste from below (it has the format: cwl-YYYY.DD.MM). 
+74.	Click **Next Step**.
+75.	Drop down the **Time Filter field name**, and select **@timestamp**.
+76.	Click Create **Index Pattern**.
+77.	Click the **Discover** tab to view the timestamp Logs events.
 Note: By default, we can see logs for the last 15 minutes. You can change the interval by clicking on the small clock symbol in the top right corner.
 These are some of the log attributes that are displayed in the Kibana dashboard:
-*	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
-*	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
-*	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials, this is the access key ID of the temporary credentials.
-*	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides information about the session that was created for those credentials. Sessions are created when any API is called that returns temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include multi-factor authentication.
+    *	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this    value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
+    *	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary      security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
+    *	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials,     this is the access key ID of the temporary credentials.
+    *	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides        information about the session that was created for those credentials. Sessions are created when any API is called that returns          temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include    multi-factor authentication.
 78.	Click the disclosure triangle next to one of the search results.
 79.	Scroll down to reveal the fields and values that CloudTrail sends.
-80.	Click   to the right of the awsRegion, eventName, eventSource, eventType, and userIdentity.arn fields.
+80.	Click   to the right of the **awsRegion**, **eventName**, **eventSource**, **eventType**, and **userIdentity.arn** fields.
 81.	Scroll to the top of the list and you will see column headers for the fields you selected, along with the first row of values. Click the disclosure triangle at the left edge of the first row of values to collapse it and see the data in tabular form.
-82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the   next to the eventName’s value for the field. This will filter out all rows in the table that have the same value.
+82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the   next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
 83.	Kibana shows you your current filters at the top of the page, right below the search bar.
  
 84.	If you hover over the filter, you will see additional controls, including a trash basket you can use to remove the filter.
