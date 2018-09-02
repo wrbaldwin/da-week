@@ -1,4 +1,4 @@
-# Data Aalytics Week at the AWS Loft
+# Data Analytics Week at the AWS Loft
 ## Redshift Basics
 
 In this lab exercise, you will create a Redshift cluster, then use SQL Workbench/J to populate and query it. You will need a Mac or Windows computer with a Firefox or Chrome browser.
@@ -7,10 +7,10 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* You will need Java 8 or higher running on your computer. If you need Java, download and install from http://www.java.com/en/ 
   	* Download the current Redshift JDBC Driver from https://s3.amazonaws.com/redshift-downloads/drivers/RedshiftJDBC42-1.2.10.1009.jar 
   	* Download SQL Workbench/J from http://www.sql-workbench.net/downloads.html and install it. Be sure to click on Manage Drivers (in the lower left corner of the configuration screen) and choose Amazon Redshift and the JDBC Driver you downloaded earlier
-  	* At the end of the installation it will be ready to connect to a database – stop when you get this this step, as you have not yet configured a database to use!
+  	* At the end of the installation it will be ready to connect to a database – stop when you get this step, as you have not yet configured a database to use!
 
 2.	Create the IAM role you will need to copy S3 objects to Redshift
-	* Logon to the AWS console using your student account. Choose the AWS region assigned by your instructor.
+	* Log on to the AWS console using your student account. Choose the AWS region assigned by your instructor.
 	* Choose the IAM service
 	* In the left navigation pane, choose **Roles**. 
 	* Choose **Create role**
@@ -48,7 +48,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:  _jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev_
 	* Open SQL Workbench/J. Choose **File**, and then choose **Connect window**. Choose **Create a new connection profile**. 
 	* In the **New profile** text box, type a name for the profile. 
-	* In the **Driver box**, choose Amazon Redshift
+	* In the **Driver box**, choose Amazon Redshift __(If the Redshift driver is red, then download and update the driver from, https://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html#download-jdbc-driver)__
 	* In the **URL box**, paste the connection string you copied earlier.
 	* In the **Username box**, type masteruser
 	* In the **Password box**, type the password you chose when you created the Redshift cluster
@@ -127,11 +127,11 @@ create table sales(
 	saletime timestamp);
 ```
 
-7.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it. It should look something like:
+7.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it into a text editor. It should look something like:
 
 `arn:aws:iam::011592912233:role/myRedshiftRole`
 
-8.	Run these COPY commands to load data into your Redshift cluster. For each command, replace the text in <red> with your ARN.
+8.	Copy the following commands and replace <iam-role-arn> with the ARN from above. Run these COPY commands in SQL Workbench/J to load data into your Redshift cluster. These commands will take several minutes to execute.
 ```
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
@@ -192,7 +192,7 @@ WHERE Q.buyerid = userid
 ORDER BY Q.total_quantity desc;
 ```
 
-* Find events in the 99.9 percentile in terms of all time gross sales.
+* Find events in the 99.9 percentile in terms of all-time gross sales.
 
 ```
 SELECT eventname, total_price 
