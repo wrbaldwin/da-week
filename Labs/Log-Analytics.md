@@ -238,67 +238,76 @@ These are some of the log attributes that are displayed in the Kibana dashboard:
 79.	Scroll down to reveal the fields and values that CloudTrail sends.
 80.	Click   to the right of the **awsRegion**, **eventName**, **eventSource**, **eventType**, and **userIdentity.arn** fields.
 81.	Scroll to the top of the list and you will see column headers for the fields you selected, along with the first row of values. Click the disclosure triangle at the left edge of the first row of values to collapse it and see the data in tabular form.
-82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the   next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
+82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the <zoom out> next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
 83.	Kibana shows you your current filters at the top of the page, right below the search bar.
  
 84.	If you hover over the filter, you will see additional controls, including a trash basket you can use to remove the filter.
-Create a visualization
+
+### **Create a visualization**
+
 You create visualizations in Elasticsearch to analyze your data and reveal patterns. You can save your visualizations and build them into dashboards that update in near real time.
-85.	Click the Visualize tab in the left navigation pane.
-86.	Click Create a visualization.
-87.	Select the Pie visualization.
-88.	Under From a New Search, Select Index, you’ll see your index name. Click it.
-89.	Click Split Slices.
-90.	Under Aggregation, select Terms.
-91.	Under Field, select eventSource.keyword (you may have to scroll down to the Strings section of the menu).
-92.	Click the   control to reveal a pie chart of different services
-93.	Click Add sub-buckets.
-94.	Click Split Slices.
-95.	From the Sub Aggregation menu, select Terms.
-96.	From the Field menu, select userIdentity.arn.keyword.
+
+85.	Click the **Visualize** tab in the left navigation pane.
+86.	Click **Create a visualization**.
+87.	Select the **Pie** visualization.
+88.	Under **From a New Search**, vSelect Index**, you’ll see your index name. Click it.
+89.	Click **Split Slices**.
+90.	Under **Aggregation**, select **Terms**.
+91.	Under **Field**, select **eventSource.keyword** (you may have to scroll down to the **Strings** section of the menu).
+92.	Click the <play button> control to reveal a pie chart of different services
+93.	Click **Add sub-buckets**.
+94.	Click **Split Slices**.
+95.	From the **Sub Aggregation** menu, select **Terms**.
+96.	From the **Field** menu, select **userIdentity.arn.keyword**.
 97.	This shows you which user has called the different services. (Some calls may not include a user arn.)
-98.	At the top of the screen, click Save.
-99.	Name your visualization Services and identities pie.
-100.	Click Save.
-Create a Time-Based Visualization
-101.	Click the Visualize tab again, then click the   button to create a new visualization.
-102.	Choose a Line visualization.
+98.	At the top of the screen, click **Save**.
+99.	Name your visualization **Services and identities pie**.
+100.	Click **Save**.
+    
+### **Create a Time-Based Visualization**
+
+101.	Click the **Visualize** tab again, then click the <plus button>  button to create a new visualization.
+102.	Choose a **Line** visualization.
 103.	Click your index name.
-104.	Under Buckets, click X-Axis.
-105.	Select Date Histogram from the Aggregation menu. This reveals a Count of all events on the Y axis.
-106.	You can Add sub buckets, e.g. with a Terms aggregation again to get a graph of the occurences of different field values. 
-107.	Instead, click the disclosure triangle next to Y-Axis.
-108.	Under Aggregation, select Unique Count. You could also create sums, mins, maxes, etc. These are useful for monitoring quantities such as CPU, and data flow. 
-109.	Select eventName.keyword from the Field drop down.
-110.	This yields a graph of the count of different calls that you are making to various AWS services. Click Save, and save your visualization as Unique calls.
-Continue to experiment with different visualizations to see what you can discover about your account and the resources that you are using. 
-Create a Near Real Time Dashboard
-111.	Click the Dashboard tab.
-112.	Click Create a dashboard.
-113.	Click the Add button.
-114.	Click the Services and identities pie.
-115.	Click Unique calls.
-116.	Click Add again at the top of the screen to collapse the visualizations list.
-117.	Click Auto refresh at the top of the screen. This drops down a list of choices for the frequency of refresh for Kibana.
-118.	Click 10 Seconds. Kibana refreshes all data in all tabs every 10 seconds. You can experiment with the AWS console and see the results show up in Kibana.
-Monitoring Amazon Elasticsearch Cluster Metrics and Statistics
-119.	Return to the Elasticsearch Service dashboard.
-120.	Click mytestdomain.
-121.	Click the Indices tab.
-This shows you the documents that have been uploaded to Kibana. Click the drop-down arrows to display further data: Count, Size in bytes, Query total, and Mappings.
-122.	Click the Monitoring tab. 
-This displays the various statistics of the cluster: CPU Utilization, Read Latency, Write Latency, and other core system resources will be displayed.
-123.	Scroll down, and select the CPUUtilization metric.
-124.	From the Statistic drop-down list, select Maximum.
-125.	Click Update graph.
-Conclusion
-Congratulations! You now know how to:
-*	Deploy an Amazon Elasticsearch Service domain
-*	Create an AWS CloudTrail Log Group
-*	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
-*	Monitor Amazon Elasticsearch Cluster Metrics
-Additional Resources
-*	For more information about Elasticsearch, see  https://aws.amazon.com/elasticsearch-service/ 
-*	For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
-*	For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
+104.	Under **Buckets**, click **X-Axis**.
+105.	Select **Date Histogram** from the **Aggregation** menu. This reveals a **Count** of all events on the Y axis.
+106.	You can **Add sub buckets**, e.g. with a **Terms** aggregation again to get a graph of the occurences of different field values. 
+107.	Instead, click the disclosure triangle next to **Y-Axis**.
+108.	Under **Aggregation**, select **Unique Count**. You could also create sums, mins, maxes, etc. These are useful for monitoring quantities such as CPU, and data flow. 
+109.	Select **eventName.keyword** from the **Field** drop down.
+110.	This yields a graph of the count of different calls that you are making to various AWS services. Click **Save**, and save your visualization as **Unique calls**.
+Continue to experiment with different visualizations to see what you can discover about your account and the resources that you are using.
+    
+### **Create a Near Real Time Dashboard**
+
+111.	Click the **Dashboard** tab.
+112.	Click **Create a dashboard**.
+113.	Click the **Add** button.
+114.	Click the **Services and identities pie**.
+115.	Click **Unique calls**.
+116.	Click **Add** again at the top of the screen to collapse the visualizations list.
+117.	Click **Auto refresh** at the top of the screen. This drops down a list of choices for the frequency of refresh for Kibana.
+118.	Click **10 Seconds**. Kibana refreshes all data in all tabs every 10 seconds. You can experiment with the AWS console and see the results show up in Kibana.
+
+### **Monitoring Amazon Elasticsearch Cluster Metrics and Statistics**
+
+119.	Return to the **Elasticsearch Service dashboard**.
+120.	Click **mytestdomain**.
+121.	Click the **Indices tab**.
+This shows you the documents that have been uploaded to Kibana. Click the drop-down arrows to display further data: **Count, Size in bytes, Query total, and Mappings**.
+122.	Click the **Monitoring tab**. 
+    This displays the various statistics of the cluster: CPU Utilization, Read Latency, Write Latency, and other core system resources       will be displayed.
+123.	Scroll down, and select the **CPUUtilization** metric.
+124.	From the Statistic drop-down list, select **Maximum**.
+125.	Click **Update graph**.
+## **Conclusion**
+    Congratulations! You now know how to:
+        *	Deploy an Amazon Elasticsearch Service domain
+        *	Create an AWS CloudTrail Log Group
+        *	Subscribe an Amazon CloudWatch Log Group to Amazon Elasticsearch Service
+        *	Monitor Amazon Elasticsearch Cluster Metrics
+    Additional Resources
+        *	For more information about Elasticsearch, see  https://aws.amazon.com/elasticsearch-service/ 
+        *	For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
+        *	For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
 
