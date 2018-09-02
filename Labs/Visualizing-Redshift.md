@@ -31,17 +31,22 @@ Password = __the password you created for Redshft__
 
 *	Choose **Create data source**
 *	In the Choose your table panel, select none of the tables and choose **Edit/Preview Data**
- 
+* Click **Save**
+
+3. Create another analysis from your Redshift data
 *	Create a new dataset with sales by date
 *	Delete any tables shown, then add the date and sales tables
 *	Click on the join (two red circles), then configure an inner join that uses date.dateid and sales.dateid, then choose **Apply**
 *	Name the dataset salesByDate, then choose **Save & Visualize**
 
-3.	Visualize sales by date
+4.	Visualize sales by date
 *	In the Visual Types pane, choose a Vertical bar chart
-*	Assign caldate to the x-axis and qtysold(sum) to the y-axis
+*	Drag caldate from Fields list to the X axis
+* Drag qtysold(sum) from Fields list to Value
 *	Explore the visualization of your data
-*	Choose **Share**, then create a shared dashboard
+*	Choose **Share**, then **Publish Dashboard**
+* Give your new dashboard a name and click **Publish dashboard**
+* Close the Share with Users box
 
 4.	Create more visualizations
 *	Add new datasets and visualizations to your dashboard. Can you show top buyers by last name? Top events by sales?
