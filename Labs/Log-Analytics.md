@@ -22,10 +22,8 @@ Prerequisites
 
 **Deploy an Amazon Elasticsearch Service Domain**
 
-1. In the AWS Managent Console, click your name, then **My Account**. From here copy your Account Id and paste this into a text document to use later. 
-
-2.	In the AWS Management Console, click **Elasticsearch Service**
-3.	Click **Create a new domain**, then use the follow to step through the wizard:
+1.	In the AWS Management Console, click **Services**, then **Elasticsearch Service**
+2.	Click **Create a new domain**, then use the follow to step through the wizard:
 
 ```
 Elasticsearch domain name:      mytestdomain
@@ -40,39 +38,38 @@ Automated snapshots start hour: 00:00 UTC (default)
 Advanced options:               leave the values at the default settings
 Network configuration:          Public Access
 Kibana authentication:          unchecked
-Access policy:                  Allow or deny access to one or more AWS accounts or IAM users
-Effect:                         Allow
-Account ID or ARN:              Your AWS account ID from step 1
+Access policy:                  Allow access to the domain from specific IP(s)
+IP address:                     In a new tab, type **My IP** and use your IP address
+
 ```
 
-4.	Review the system configuration, and click **Confirm**.
+3.	Review the system configuration, and click **Confirm**.
 __The service can take ten minutes to deploy. While waiting for the service to deploy, you can complete the steps in the next section.__
 
 ### **Create a CloudTrail Log Group for Amazon Elasticsearch Service**
 
-1.	Click **Services**
-2.	Under **Management Tools**, right-click **CloudTrail**, and click **Open link in new tab**
-    Note: This allows you to keep the Elasticsearch dashboard open so you can monitor the cluster creation progress
-3.	Click **Create trail**
-4.	Name the trail **mytestdomain-trail**
-5.	Leave **Apply trail to all regions** set to **Yes**
-6.	Leave **Management events** set to **All**
-7.	Skip the **Data events** section
-8.	Under **Storage location** type **mytestdomain-s3** as the **S3 Bucket**
-9.	Skip the **Advanced** section
-10.	Click **Create**
-11.	You will be returned to the CloudTrail dashboard. Click **mytestdomain-trail** to open the configuration page
-12.	Scroll down to the **CloudWatch Logs** section and expand
-13.	Under CloudWatch Logs, click **Configure**
-14.	In the **New or existing log group** text box, delete the existing text, and enter **CloudTrail/mytestdomain-trail**.
-15.	Click **Continue**. This will bring you to the IAM console, to enable CloudTrail to write to CloudWatch Logs.
-16.	Click **Allow**.
+1.	In the AWS Management Console, click **Services**, then **CloudTrail**
+2.	Click **Create trail**
+3.	Name the trail **mytestdomain-trail**
+4.	Leave **Apply trail to all regions** set to **Yes**
+5.	Leave **Management events** set to **All**
+6.	Skip the **Data events** section
+7.	Under **Storage location** type **mytestdomain-s3** as the **S3 Bucket**
+8.	Skip the **Advanced** section
+9.	Click **Create**
+10.	You will be returned to the CloudTrail dashboard. Click **mytestdomain-trail** to open the configuration page
+11.	Scroll down to the **CloudWatch Logs** section and expand
+12.	Under CloudWatch Logs, click **Configure**
+13.	In the **New or existing log group** text box, delete the existing text, and enter **CloudTrail/mytestdomain-trail**.
+14.	Click **Continue**. This will bring you to the IAM console, to enable CloudTrail to write to CloudWatch Logs.
+15.	Click **Allow**.
     Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
 
 ### **Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
 
-1.	Switch back to the Elasticsearch dashboard browser tab and wait until the mytestdomain cluster Domain **status** changes to **Active**
-2.	Click **Services**, click **CloudWatch**
+1.	In the AWS Management Console, click **Services**, then **Elasticsearch Service**
+__wait until the mytestdomain cluster Domain **status** changes to **Active**__
+2.	In the AWS Management Console, click **Services**, then click **CloudWatch**
 3.  Click **Logs** in the left navigation pane
 4.	In the **Log Groups** page, tick the Log Group box you just created, **CloudTrail/mytestdomain-trail**
 5.	Click the **Actions** drop-down list, and select **Stream to Amazon Elasticsearch Service**
@@ -90,16 +87,15 @@ __The service can take ten minutes to deploy. While waiting for the service to d
 
 ### **Use Kibana to visualize your CloudTrail logs**
 
-OPEN KIBANA
-Under **Manage and Administer the Elastic Stack** click **Index Patterns**
+1.  In the AWS Management Console, click **Services**, then **Elasticsearch Service** 
+2.  click OPEN KIBANA
+3.  Under **Manage and Administer the Elastic Stack** click **Index Patterns**
 
-73.	In the **Index Pattern** text box, type the index name or copy-paste from below (it has the format: cwl-YYYY.DD.MM). 
-
-74.	Click **Next Step**.
-
-75.	Drop down the **Time Filter field name**, and select **@timestamp**.
-76.	Click Create **Index Pattern**.
-77.	Click the **Discover** tab to view the timestamp Logs events.
+4.	In the **Index Pattern** text box, type the index name or copy-paste from below (it has the format: cwl-YYYY.DD.MM). 
+5.	Click **Next Step**.
+6.	Drop down the **Time Filter field name**, and select **@timestamp**.
+7.	Click Create **Index Pattern**.
+8.	Click the **Discover** tab to view the timestamp Logs events.
 Note: By default, we can see logs for the last 15 minutes. You can change the interval by clicking on the small clock symbol in the top right corner.
 
 These are some of the log attributes that are displayed in the Kibana dashboard:
@@ -108,73 +104,73 @@ These are some of the log attributes that are displayed in the Kibana dashboard:
     *	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials,     this is the access key ID of the temporary credentials.
     *	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides        information about the session that was created for those credentials. Sessions are created when any API is called that returns          temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include    multi-factor authentication.
 
-78.	Click the disclosure triangle next to one of the search results.
-79.	Scroll down to reveal the fields and values that CloudTrail sends.
-80.	Click the 3rd icon to the right of the **awsRegion**, **eventName**, **eventSource**, **eventType**, and **userIdentity.arn** fields.
-81.	Scroll to the top of the list and you will see column headers for the fields you selected, along with the first row of values. Click the disclosure triangle at the left edge of the first row of values to collapse it and see the data in tabular form.
-82.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the <zoom out icon> next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
-83.	Kibana shows you your current filters at the top of the page, right below the search bar.
+9.	Click the disclosure triangle next to one of the search results.
+10.	Scroll down to reveal the fields and values that CloudTrail sends.
+11.	Click the 3rd icon to the right of the **awsRegion**, **eventName**, **eventSource**, **eventType**, and **userIdentity.arn** fields.
+12.	Scroll to the top of the list and you will see column headers for the fields you selected, along with the first row of values. Click the disclosure triangle at the left edge of the first row of values to collapse it and see the data in tabular form.
+13.	You can easily filter out some logs (rows) that you don’t want to see. Click the disclosure triangle to open one of the table’s rows. Click the <zoom out icon> next to the **eventName’s** value for the field. This will filter out all rows in the table that have the same value.
+14.	Kibana shows you your current filters at the top of the page, right below the search bar.
 ![screen](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/log-analytics-83.png)
     
-84.	If you hover over the filter, you will see additional controls, including a trash basket you can use to remove the filter.
+15.	If you hover over the filter, you will see additional controls, including a trash basket you can use to remove the filter.
 
 ### **Create a visualization**
 
 You create visualizations in Elasticsearch to analyze your data and reveal patterns. You can save your visualizations and build them into dashboards that update in near real time.
 
-85.	Click the **Visualize** tab in the left navigation pane.
-86.	Click **Create a visualization**.
-87.	Select the **Pie** visualization.
-88.	Under **From a New Search**, vSelect Index**, you’ll see your index name. Click it.
-89.	Click **Split Slices**.
-90.	Under **Aggregation**, select **Terms**.
-91.	Under **Field**, select **eventSource.keyword** (you may have to scroll down to the **Strings** section of the menu).
-92.	Click the <play button> control to reveal a pie chart of different services
-93.	Click **Add sub-buckets**.
-94.	Click **Split Slices**.
-95.	From the **Sub Aggregation** menu, select **Terms**.
-96.	From the **Field** menu, select **userIdentity.arn.keyword**.
-97.	This shows you which user has called the different services. (Some calls may not include a user arn.)
-98.	At the top of the screen, click **Save**.
-99.	Name your visualization **Services and identities pie**.
-100.	Click **Save**.
+1.	Click the **Visualize** tab in the left navigation pane.
+2.	Click **Create a visualization**.
+3.	Select the **Pie** visualization.
+4.	Under **From a New Search**, vSelect Index**, you’ll see your index name. Click it.
+5.	Click **Split Slices**.
+6.	Under **Aggregation**, select **Terms**.
+7.	Under **Field**, select **eventSource.keyword** (you may have to scroll down to the **Strings** section of the menu).
+8.	Click the <play button> control to reveal a pie chart of different services
+9.	Click **Add sub-buckets**.
+10.	Click **Split Slices**.
+11.	From the **Sub Aggregation** menu, select **Terms**.
+12.	From the **Field** menu, select **userIdentity.arn.keyword**.
+13.	This shows you which user has called the different services. (Some calls may not include a user arn.)
+14.	At the top of the screen, click **Save**.
+15.	Name your visualization **Services and identities pie**.
+16.	Click **Save**.
     
-### **Create a Time-Based Visualization**
+### **Create a Time-Based Visualization** **(Optional)**
 
-101.	Click the **Visualize** tab again, then click the <plus button>  button to create a new visualization.
-102.	Choose a **Line** visualization.
-103.	Click your index name.
-104.	Under **Buckets**, click **X-Axis**.
-105.	Select **Date Histogram** from the **Aggregation** menu. This reveals a **Count** of all events on the Y axis.
-106.	You can **Add sub buckets**, e.g. with a **Terms** aggregation again to get a graph of the occurences of different field values. 
-107.	Instead, click the disclosure triangle next to **Y-Axis**.
-108.	Under **Aggregation**, select **Unique Count**. You could also create sums, mins, maxes, etc. These are useful for monitoring quantities such as CPU, and data flow. 
-109.	Select **eventName.keyword** from the **Field** drop down.
-110.	This yields a graph of the count of different calls that you are making to various AWS services. Click **Save**, and save your visualization as **Unique calls**.
-Continue to experiment with different visualizations to see what you can discover about your account and the resources that you are using.
+1.	Click the **Visualize** tab again, then click the <plus button>  button to create a new visualization.
+2.	Choose a **Line** visualization.
+3.	Click your index name.
+4.	Under **Buckets**, click **X-Axis**.
+5.	Select **Date Histogram** from the **Aggregation** menu. This reveals a **Count** of all events on the Y axis.
+6.	You can **Add sub buckets**, e.g. with a **Terms** aggregation again to get a graph of the occurences of different field values. 
+7.	Instead, click the disclosure triangle next to **Y-Axis**.
+8.	Under **Aggregation**, select **Unique Count**. You could also create sums, mins, maxes, etc. These are useful for monitoring quantities such as CPU, and data flow. 
+9.	Select **eventName.keyword** from the **Field** drop down.
+10.	This yields a graph of the count of different calls that you are making to various AWS services. Click **Save**, and save your visualization as **Unique calls**.
     
-### **Create a Near Real Time Dashboard**
+### **Create a Near Real Time Dashboard** **(Optional)**
 
-111.	Click the **Dashboard** tab.
-112.	Click **Create a dashboard**.
-113.	Click the **Add** button.
-114.	Click the **Services and identities pie**.
-115.	Click **Unique calls**.
-116.	Click **Add** again at the top of the screen to collapse the visualizations list.
-117.	Click **Auto refresh** at the top of the screen. This drops down a list of choices for the frequency of refresh for Kibana.
-118.	Click **10 Seconds**. Kibana refreshes all data in all tabs every 10 seconds. You can experiment with the AWS console and see the results show up in Kibana.
+1.	Click the **Dashboard** tab.
+2.	Click **Create a dashboard**.
+3.	Click the **Add** button.
+4.	Click the **Services and identities pie**.
+5.	Click **Unique calls**.
+6.	Click **Add** again at the top of the screen to collapse the visualizations list.
+7.	Click **Auto refresh** at the top of the screen. This drops down a list of choices for the frequency of refresh for Kibana.
+8.	Click **10 Seconds**. Kibana refreshes all data in all tabs every 10 seconds. You can experiment with the AWS console and see the results show up in Kibana.
 
 ### **Monitoring Amazon Elasticsearch Cluster Metrics and Statistics**
 
-119.	Return to the **Elasticsearch Service dashboard**.
-120.	Click **mytestdomain**.
-121.	Click the **Indices tab**.
+1.	Return to the **Elasticsearch Service dashboard**.
+2.	Click **mytestdomain**.
+3.	Click the **Indices tab**.
 This shows you the documents that have been uploaded to Kibana. Click the drop-down arrows to display further data: **Count, Size in bytes, Query total, and Mappings**.
-122.	Click the **Monitoring tab**. 
+4.	Click the **Monitoring tab**. 
     This displays the various statistics of the cluster: CPU Utilization, Read Latency, Write Latency, and other core system resources       will be displayed.
-123.	Scroll down, and select the **CPUUtilization** metric.
-124.	From the Statistic drop-down list, select **Maximum**.
-125.	Click **Update graph**.
+5.	Scroll down, and select the **CPUUtilization** metric.
+6.	From the Statistic drop-down list, select **Maximum**.
+7.	Click **Update graph**.
+
 ## **Conclusion**
 Congratulations! You now know how to:
 * Deploy an Amazon Elasticsearch Service domain
