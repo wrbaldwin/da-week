@@ -22,39 +22,32 @@ Prerequisites
 
 **Deploy an Amazon Elasticsearch Service Domain**
 
-1.	In the AWS Management Console, click **Elasticsearch Service**.
-2.	Click **Get Started** or **Create a new domain** depending on whether you have an existing domain.
-3.	In **Step 1: Elasticsearch domain name**, type **mytestdomain** into the box, and click **Next**.
-4.	In **Step 2: Configure cluster page**, under the **Node configuration section**, select the following information from the drop-down lists:
-    a.	In the **Instance count** text box, leave **1** (the default).
-       This is the number of instances that you wish to deploy with your cluster.
-    b.	In the **Instance type** section, select **t2.small.elasticsearch** (free tier eligible).
-       When you launch an instance, the instance type that you specify determines the hardware of the host computer used for your              instance. Each instance type offers different compute, memory, and storage capabilities.
-       c.	Do not select **Enable dedicated master**.
-       A dedicated master node is a cluster node that performs cluster management tasks, but does not hold data or respond to data              upload requests. This offloading of cluster management tasks increases the stability of your Amazon Elasticsearch clusters. We          recommend that you avoid allocating dedicated master nodes for all small and short-lived Amazon Elasticsearch domains.
-    d.	Do not select **Enable zone awareness**.
-       If you enable zone awareness, you should use Amazon Elasticsearch API to set up replicas for your cluster. Amazon Elasticsearch          Service will distribute replicas across the nodes in Availability Zones. This will increase the availability of your cluster.   
-5.	In the **Storage Configuration** section, select the following information from the drop-down lists:
-    a.	**Storape 	EBS**
-       Elasticsearch provides two different storage option types: Instance store and Elastic Block Store (EBS). 
-    b.	**EBS volume type	General Purpose (SSD)**
-       General Purpose (SSD) storage is suitable for a wide variety of database workloads that have moderate I/O requirements. The              baseline of 3 IOPS per GB and the ability to burst up to 3,000 IOPS will provide you with predictable performance well-suited to        many applications.
-    c.	**EBS volume size	10**
-       Amazon EBS provides durable, block-level storage volumes that you can attach to a running instance. You can use Amazon EBS as a          primary storage device for data that requires frequent and granular updates.
-6.	In the **Snapshot configuration** section, select the following from the drop-down lists:
-    a.	**Automated snapshots start hour	00:00 UTC (default)**
-7.	In the **Advanced options** section, leave the values at the default settings. 
-8.	Click **Next**.
-9.	In the **Step 3: Set up access** page, select the following from the drop-down lists:
-    a.	Select the radio button for **Public access**.
-    Public access domains have public IPs for their endpoints, resolved through DNS. 
-    b.	Under **Access policy**, select **Allow or deny access to one or more AWS accounts or IAM users** from the drop down menu.
-    c.	**In the resulting dialog**
-        i.	**Set the “Account ID or ARN” to:	Your AWS account ID**
-        ii.	Click **OK**.
-10.	Click **Next**.
-11.	Review the system configuration, and click **Confirm**.
-    Note: The service can take ten minutes to deploy. While waiting for the service to deploy, you can complete the steps in the next       section. 
+1. In the AWS Managent Console, click your name, then **My Account**. From here copy your Account Id and paste this into a text document to use later. 
+
+2.	In the AWS Management Console, click **Elasticsearch Service**
+3.	Click **Create a new domain**, then use the follow to step through the wizard:
+
+```
+Elasticsearch domain name:      **mytestdomain**
+Instance count:                 1
+Instance type:                  **t2.small.elasticsearch** (free tier eligible)
+Enable dedicated master:        **Unchecked**
+Enable zone awareness:          **Unchecked**
+Storage type:                   **EBS**
+EBS volume type:                **General Purpose (SSD)**
+EBS volume size:                **10**
+Automated snapshots start hour: **00:00 UTC (default)**
+Advanced options:               **leave the values at the default settings** 
+Network configuration:          **Public Access**
+Kibana authentication:          **unchecked**
+Access policy:                  **Allow or deny access to one or more AWS accounts or IAM users**
+Effect:                         **Allow**
+Account ID or ARN:              **Your AWS account ID from step 1**
+```
+
+4.	Review the system configuration, and click **Confirm**.
+__The service can take ten minutes to deploy. While waiting for the service to deploy, you can complete the steps in the next section.__
+
 ### **Create a CloudTrail Log Group for Amazon Elasticsearch Service**
 
 12.	Click **Services**.
