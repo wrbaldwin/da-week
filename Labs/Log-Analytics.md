@@ -28,21 +28,21 @@ Prerequisites
 3.	Click **Create a new domain**, then use the follow to step through the wizard:
 
 ```
-Elasticsearch domain name:      **mytestdomain**
+Elasticsearch domain name:      mytestdomain
 Instance count:                 1
-Instance type:                  **t2.small.elasticsearch** (free tier eligible)
-Enable dedicated master:        **Unchecked**
-Enable zone awareness:          **Unchecked**
-Storage type:                   **EBS**
-EBS volume type:                **General Purpose (SSD)**
-EBS volume size:                **10**
-Automated snapshots start hour: **00:00 UTC (default)**
-Advanced options:               **leave the values at the default settings** 
-Network configuration:          **Public Access**
-Kibana authentication:          **unchecked**
-Access policy:                  **Allow or deny access to one or more AWS accounts or IAM users**
-Effect:                         **Allow**
-Account ID or ARN:              **Your AWS account ID from step 1**
+Instance type:                  t2.small.elasticsearch** (free tier eligible)
+Enable dedicated master:        Unchecked
+Enable zone awareness:          Unchecked
+Storage type:                   EBS
+EBS volume type:                General Purpose (SSD)
+EBS volume size:                10
+Automated snapshots start hour: 00:00 UTC (default)
+Advanced options:               leave the values at the default settings
+Network configuration:          Public Access
+Kibana authentication:          unchecked
+Access policy:                  Allow or deny access to one or more AWS accounts or IAM users
+Effect:                         Allow
+Account ID or ARN:              Your AWS account ID from step 1
 ```
 
 4.	Review the system configuration, and click **Confirm**.
