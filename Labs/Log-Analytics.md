@@ -88,7 +88,7 @@ __wait until the mytestdomain cluster Domain **status** changes to **Active**__
 ### **Use Kibana to visualize your CloudTrail logs**
 
 1.  In the AWS Management Console, click **Services**, then **Elasticsearch Service** 
-2.  click OPEN KIBANA
+2.  Click **mytestdomain**, then click the URL next to **Kibana**
 3.  Under **Manage and Administer the Elastic Stack** click **Index Patterns**
 
 4.	In the **Index Pattern** text box, type the index name or copy-paste from below (it has the format: cwl-YYYY.DD.MM). 
