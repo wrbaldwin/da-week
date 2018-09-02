@@ -50,96 +50,47 @@ __The service can take ten minutes to deploy. While waiting for the service to d
 
 ### **Create a CloudTrail Log Group for Amazon Elasticsearch Service**
 
-12.	Click **Services**.
-13.	Under **Management Tools**, right-click **CloudTrail**, and click **Open link in new tab**.
-    Note: This allows you to keep the Elasticsearch dashboard open so you can monitor the cluster creation progress. 
-14.	Hide the **Services** drop-down menu by clicking the icon below.
- 
-15.	Switch to the new tab, and click **Trails** in the left navigation pane.
-16.	Click **Create trail**.
-17.	Name the trail **mytestdomain-trail**.
-18.	Leave **Apply trail to all regions** set to **Yes**.
-19.	Leave **Management events** set to **All**.
-20.	Skip the **Data events** section.
-21.	Under **Storage location** type **mytestdomain-s3** as the **S3 Bucket**.
-22.	Skip the **Advanced** section.
-23.	Click **Create**.
-24.	You will be returned to the CloudTrail dashboard. Click **mytestdomain-trail** to open the configuration page.
-25.	Scroll down to the **CloudWatch Logs** section.
-26.	Under CloudWatch Logs, click Configure.
-    Note: If the **Configure** button is not visible, click the pencil icon to open the log creation wizard.
- 
-27.	In the **New or existing log group** text box, delete the existing text, and enter **CloudTrail/mytestdomain-trail**.
-28.	Click **Continue**. This will bring you to the IAM console, to enable CloudTrail to write to CloudWatch Logs.
-29.	Click **Allow**.
-    Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of       the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While           CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
-
-### **Create an IAM role for Lambda to write to Amazon ES**
-
-This is a workaround for a current bug in the console.
-
-30.	Navigate to the **IAM** console.
-
-31.	Click the **Policies** tab in the left navigation window
-
-
-32.	Click **Create policy**.
-33.	Click the **JSON** tab
-34.	Paste the following
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "es:ESHttpPost"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-35.	Click **Review** policy.
-36.	Name the policy **PostToAllAmazonESDomains**.
-37.	Click **Create policy**.
-38.	Select the **Roles** tab in the left navigation pane.
-39.	Click **Create role**.
-40.	Leave **AWS service** selected under **Select type of trusted entity**.
-41.	Select **Lambda** as the **service that will use this role**.
-42.	Click **Next: Permissions**.
-43.	Type **PostToAllAmazonESDomains** in the search box.
-44.	Click the check mark next to the policy in the search results.
-45.	Click **Next: Review**.
-46.	Set the **Role name** to **PostToAllAmazonESDomains**
-47.	Click **Create role**.
+1.	Click **Services**
+2.	Under **Management Tools**, right-click **CloudTrail**, and click **Open link in new tab**
+    Note: This allows you to keep the Elasticsearch dashboard open so you can monitor the cluster creation progress
+3.	Click **Create trail**
+4.	Name the trail **mytestdomain-trail**
+5.	Leave **Apply trail to all regions** set to **Yes**
+6.	Leave **Management events** set to **All**
+7.	Skip the **Data events** section
+8.	Under **Storage location** type **mytestdomain-s3** as the **S3 Bucket**
+9.	Skip the **Advanced** section
+10.	Click **Create**
+11.	You will be returned to the CloudTrail dashboard. Click **mytestdomain-trail** to open the configuration page
+12.	Scroll down to the **CloudWatch Logs** section and expand
+13.	Under CloudWatch Logs, click **Configure**
+14.	In the **New or existing log group** text box, delete the existing text, and enter **CloudTrail/mytestdomain-trail**.
+15.	Click **Continue**. This will bring you to the IAM console, to enable CloudTrail to write to CloudWatch Logs.
+16.	Click **Allow**.
+    Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
 
 ### **Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
 
-48.	Switch back to the Elasticsearch dashboard browser tab and wait until the mytestdomain cluster Domain **status** changes to **Active**. 
-    Note: Here is a link to some additional reading while waiting for the cluster to go Active:
-    http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/what-is-amazon-elasticsearch-service.html 
-49.	Enter the **CloudWatch** dashboard by clicking **Services**.
-50.	Under **Management Tools**, right-click **CloudWatch**.
-51.	Switch to the CloudWatch Logs tab in your browser and click **Logs** in the left navigation pane. 
-52.	In the **Log Groups** page, tick the Log Group box you just created, **CloudTrail/mytestdomain-trail**.
-53.	Click the **Actions** drop-down list, and select **Stream to Amazon Elasticsearch Service**.
-54.	In the **Amazon ES Cluster** drop-down list, select the Amazon Elasticsearch Cluster that was created earlier, **mytestdomain**.
-55.	In the **Lambda IAM Execution Role** drop-down list, select **Create new IAM role**, and click **Allow**. [Workaround: choose the role you created above]
-56.	Click **Next**.
-57.	In the **Log Format** drop-down list, select **AWS CloudTrail**.
-58.	Ignore the **Subscription Filter Pattern** section. This is not required for this exercise.
-59.	In the **Select Log Data to Test** section, click **Test Pattern**. You should see 50 matches under Results.
-60.	Click **Next**.
-61.	Review and click **Next** again.
-62.	Click **Start Streaming**.
-63.	A **Success** page should now be displayed informing you of the service activation.
-64.	Click **Close**.
-65.	Close the current browser tab.
+1.	Switch back to the Elasticsearch dashboard browser tab and wait until the mytestdomain cluster Domain **status** changes to **Active**
+2.	Click **Services**, click **CloudWatch**
+3.  Click **Logs** in the left navigation pane
+4.	In the **Log Groups** page, tick the Log Group box you just created, **CloudTrail/mytestdomain-trail**
+5.	Click the **Actions** drop-down list, and select **Stream to Amazon Elasticsearch Service**
+6.	In the **Amazon ES Cluster** drop-down list, select the Amazon Elasticsearch Cluster that was created earlier, **mytestdomain**
+7.	In the **Lambda IAM Execution Role** drop-down list, select **Create new IAM role**, and click **Allow**
+8.	Click **Next**
+9.	In the **Log Format** drop-down list, select **AWS CloudTrail**
+10.	Ignore the **Subscription Filter Pattern** section. This is not required for this exercise
+11.	In the **Select Log Data to Test** section, click **Test Pattern**. You should see 50 matches under Results
+12.	Click **Next**
+13.	Review and click **Next** again
+14.	Click **Start Streaming**
+15.	A **Success** page should now be displayed informing you of the service activation
+16.	Close the current browser tab
 
 ### **Use Kibana to visualize your CloudTrail logs**
 
-66.	Return to the **Elasticsearch Service** browser tab you initially opened.
+1.	Return to the **Elasticsearch Service** browser tab you initially opened.
 67.	Return to the **Elasticsearch Service** dashboard.
 68.	In the left navigation pane, click **mytestdomain**.
 69.	Copy your domain’s **Endpoint**.
