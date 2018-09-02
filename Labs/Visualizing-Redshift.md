@@ -1,5 +1,7 @@
-Visualization with Amazon QuickSight
-Hands-on Lab
+# Data Analytics Week at the Loft
+## Visualization with Amazon QuickSight
+
+prerequisite: [Redshift Basics](https://github.com/wrbaldwin/da-week/blob/master/Labs/Redshift-Basics.md)
 
 In this lab exercise, you will set up a QuickSight account, then visualize the data you entered in the “Using Redshift” Hands-on Lab. You will need a Mac or Windows computer with a Firefox or Chrome browser.
 
@@ -22,7 +24,7 @@ In this lab exercise, you will set up a QuickSight account, then visualize the d
 *	Instance ID = examplecluster
 *	Database name = dev
 *	Username = masteruser
-*	Password = <<the password you created for Redshft>>
+*	Password = __the password you created for Redshft__
 *	Choose **Create data source**
 *	In the Choose your table panel, select none of the tables and choose **Edit/Preview Data**
  
