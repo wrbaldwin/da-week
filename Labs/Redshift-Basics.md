@@ -9,7 +9,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
   	* Download SQL Workbench/J from http://www.sql-workbench.net/downloads.html and install it. Be sure to click on Manage Drivers (in the lower left corner of the configuration screen) and choose Amazon Redshift and the JDBC Driver you downloaded earlier
   	* At the end of the installation it will be ready to connect to a database – stop when you get this step, as you have not yet configured a database to use!
 
-2.	Create the IAM role you will need to copy S3 objects to Redshift
+1.	Create the IAM role you will need to copy S3 objects to Redshift
 	* Log on to the AWS console using your student account. Choose the AWS region assigned by your instructor.
 	* Choose the IAM service
 	* In the left navigation pane, choose **Roles**. 
@@ -21,7 +21,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* Once the role is created, click on myRedshiftRole
 	* Note the **Role ARN**—this is the Amazon Resource Name (ARN) for the role that you just created. You will need this later.
 
-3.	Create a Redshift cluster
+1.	Create a Redshift cluster
 	* From the AWS Console, choose the Amazon Redshift service
 	* Choose **Launch Cluster**
 	* On the Cluster Details page, enter the following values and then choose **Continue**: 
@@ -35,7 +35,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* For **AvailableRoles**, choose myRedshiftRole and then choose **Continue**. 
 	* On the Review page, double-check your choices and choose **Launch Cluster**. Choose **Close** to return to the Clusters dashboard.
 
-4.	Authorize your access to the Redshift cluster, by adding a rule to your Security Group
+1.	Authorize your access to the Redshift cluster, by adding a rule to your Security Group
 	* On the Clusters dashboard, click on examplecluster.
 	* Scroll down to find your VPC security groups. Click on your active security group.
 	* On the Security Group pane, click on **Inbound**
@@ -43,7 +43,7 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* Assign a **Type** of **Redshift**, which should automatically set the Protocol to TCP and the Port Range to 5439
 	* Assign a **Source** of **Custom** and set the CIDR block to 0.0.0.0/0. Choose **Save**. [Note: this allows access to your Redshift cluster from any computer on the Internet. Never do this in a production environment!!!]
 
-5.	Connect to your Redshift cluster using SQL Workbench/J
+1.	Connect to your Redshift cluster using SQL Workbench/J
 	* From the AWS Console, choose the Amazon Redshift service, then choose **Clusters** and click on examplecluster
 	* Scroll down to the JDBC URL. This is your connection string. Copy it. It should look something like:  _jdbc:redshift://examplecluster.cdkituczqepk.us-west-2.redshift.amazonaws.com:5439/dev_
 	* Open SQL Workbench/J. Choose **File**, and then choose **Connect window**. Choose **Create a new connection profile**. 
@@ -56,9 +56,9 @@ In this lab exercise, you will create a Redshift cluster, then use SQL Workbench
 	* Choose **Test**. If there are any error messages, do what you need to fix them. If the test succeeds, choose **OK**.
 
  
-6.	Load data and run queries
+1.	Load data and run queries
 	* Copy and execute the following create table statements to create tables in the dev database. 
-```
+```SQL
 create table users(
 	userid integer not null distkey sortkey,
 	username char(8),
@@ -127,11 +127,11 @@ create table sales(
 	saletime timestamp);
 ```
 
-7.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it into a text editor. It should look something like:
+1.	Get the role ARN for myRedshiftRole (you created this earlier) and copy it into a text editor. It should look something like:
 
 `arn:aws:iam::011592912233:role/myRedshiftRole`
 
-8.	Copy the following commands and replace <iam-role-arn> with the ARN from above. Run these COPY commands in SQL Workbench/J to load data into your Redshift cluster. These commands will take several minutes to execute.
+1.	Copy the following commands and replace <iam-role-arn> with the ARN from above. Run these COPY commands in SQL Workbench/J to load data into your Redshift cluster. These commands will take several minutes to execute.
 ```
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
@@ -162,10 +162,10 @@ credentials 'aws_iam_role=<iam-role-arn>'
 delimiter '\t' timeformat 'MM/DD/YYYY HH:MI:SS' region 'us-west-2';
 ```
 
-9.	Run some queries:
+1.	Run some queries:
 
 * Get definition for the sales table.
-```
+```SQL
 SELECT *    
 FROM pg_table_def    
 WHERE tablename = 'sales';    
@@ -173,7 +173,7 @@ WHERE tablename = 'sales';
 
 * Find total sales on a given calendar date.
 
-```
+```SQL
 SELECT sum(qtysold) 
 FROM   sales, date 
 WHERE  sales.dateid = date.dateid 
@@ -182,7 +182,7 @@ AND    caldate = '2008-01-05';
 
 * Find top 10 buyers by quantity.
 
-```
+```SQL
 SELECT firstname, lastname, total_quantity 
 FROM   (SELECT buyerid, sum(qtysold) total_quantity
         FROM  sales
@@ -194,7 +194,7 @@ ORDER BY Q.total_quantity desc;
 
 * Find events in the 99.9 percentile in terms of all-time gross sales.
 
-```
+```SQL
 SELECT eventname, total_price 
 FROM  (SELECT eventid, total_price, ntile(1000) over(order by total_price desc) as percentile 
        FROM (SELECT eventid, sum(pricepaid) total_price
