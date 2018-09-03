@@ -132,7 +132,7 @@ create table sales(
 `arn:aws:iam::011592912233:role/myRedshiftRole`
 
 1.	Copy the following commands and replace <iam-role-arn> with the ARN from above. Run these COPY commands in SQL Workbench/J to load data into your Redshift cluster. These commands will take several minutes to execute.
-```SQL
+```
 copy users from 's3://awssampledbuswest2/tickit/allusers_pipe.txt' 
 credentials 'aws_iam_role=<iam-role-arn>' 
 delimiter '|' region 'us-west-2';
