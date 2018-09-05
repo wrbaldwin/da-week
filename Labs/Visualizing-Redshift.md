@@ -9,7 +9,7 @@ In this lab exercise, you will set up a QuickSight account, then visualize the d
 *	From the AWS Console, choose the QuickSight service
 *	Choose **Sign Up for Quicksight**
 *	Select **Standard** edition, then choose **Continue**
-*	In the QuickSight account name box, type myQuickSight
+*	In the QuickSight account name box, type myQuickSight-__YourName__ (QuickSight names must be unique)
 *	In the Notification email address box, type your email address
 *	Select the AWS region assigned by your instructor
 *	Be sure the boxes are checked for “Enable autodiscovery of data and users in your Amazon Redshift, Amazon RDS and AWS IAM services.” And “Amazon Athena”
