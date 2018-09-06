@@ -29,10 +29,6 @@ By following the steps in this section, you can create your first Amazon Kinesis
   
   * _Record pre-processing with AWS Lambda_ - This option is where you specify an AWS Lambda expression that modifies the records in the input stream before your application code executes. In this exercise, leave the Disabled option selected.
 
-         
-
-        Record pre-processing with AWS Lambda: This option is where you specify an AWS Lambda expression that modifies the records in the input stream before your application code executes. In this exercise, leave the Disabled option selected. For more information about Lambda preprocessing, see Preprocessing Data Using a Lambda Function.
-
 After you provide all the information on this page, the console sends an update request (see UpdateApplication) to add the input configuration the application.
 
 1.  On the Source page, choose Configure a new stream.
