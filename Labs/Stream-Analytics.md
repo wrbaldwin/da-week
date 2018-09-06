@@ -19,7 +19,7 @@ By following the steps in this section, you can create your first Amazon Kinesis
 
 ### Configure Input
 
-1.  On the application hub page in the console, choose Connect to a source.
+1.  On the application hub page in the console, choose __Connect streaming data.__
 ![Screenshot of the example app and the connect to a source button](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-20.png)
 
 2.  On the page that appears, review the following:
@@ -31,9 +31,9 @@ By following the steps in this section, you can create your first Amazon Kinesis
 
 After you provide all the information on this page, the console sends an update request (see UpdateApplication) to add the input configuration the application.
 
-3.  On the Source page, choose Configure a new stream.
+3.  On the Source page, choose __Configure a new stream__.
 
-4.  Choose Create demo stream. The console configures the application input by doing the following:
+4.  Choose __Create demo stream__. The console configures the application input by doing the following:
 
   * The console creates a Kinesis data stream called kinesis-analytics-demo-stream.
 
@@ -56,11 +56,9 @@ The following appear on the Stream sample console page:
 
   * If you choose Rediscover schema, you can request the console to run DiscoverInputSchema again and infer the schema.
 
-5. Choose Save and continue. 
+5. Choose __Save and continue__. 
 
 ### Add Real-Time Analytics (Add Application Code)
-
-
 
 1. On the application hub page, choose __Go to SQL editor.__
 ![Screenshot](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-40.png)
@@ -69,16 +67,16 @@ The following appear on the Stream sample console page:
 
 3. The console opens the SQL editor page. Review the page, including the buttons (Add SQL from templates, Save and run SQL) and various tabs.
 
-4. In the SQL editor, choose Add SQL from templates.
+4. In the SQL editor, choose __Add SQL from templates__.
 
-5. From the available template list, choose Continuous filter. The sample code reads data from one in-application stream (the WHERE clause filters the rows) and inserts it in another in-application stream as follows:
+5. From the available template list, choose __Continuous filter__. The sample code reads data from one in-application stream (the WHERE clause filters the rows) and inserts it in another in-application stream as follows:
 
  * It creates the in-application stream DESTINATION_SQL_STREAM.
  * It creates a pump STREAM_PUMP, and uses it to select rows from SOURCE_SQL_STREAM_001 and insert them in the DESTINATION_SQL_STREAM.
 
-7. Choose Add this SQL to editor.
+7. Choose __Add this SQL to editor__.
 
-8. In the SQL Editor, choose Save and run SQL. The console first sends update request to save the application code. Then, the code continuously executes.
+8. In the SQL Editor, choose __Save and run SQL__. The console first sends update request to save the application code. Then, the code continuously executes.
 
 You can see the results in the Real-time analytics tab.
 [Screenshot](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
