@@ -86,10 +86,8 @@ You can see the results in the Real-time analytics tab.
 The SQL editor has the following tabs:
 
  * The Source data tab shows an in-application input stream that is mapped to the streaming source. Choose the in-application stream, and you can see data coming in. Note the additional columns in the in-application input stream that weren't specified in the input configuration. These include the following time stamp columns:
-
-  * ROWTIME – Each row in an in-application stream has a special column called ROWTIME. This column is the time stamp when Amazon Kinesis Data Analytics inserted the row in the first in-application stream (the in-application input stream that is mapped to the streaming source).
-
-  * Approximate_Arrival_Time – Each Kinesis Data Analytics record includes a value called Approximate_Arrival_Time. This value is the approximate arrival time stamp that is set when the streaming source successfully receives and stores the record. When Kinesis Data Analytics reads records from a streaming source, it fetches this column into the in-application input stream. These time stamp values are useful in windowed queries that are time-based. For more information, see Windowed Queries.
+   * ROWTIME – Each row in an in-application stream has a special column called ROWTIME. This column is the time stamp when Amazon Kinesis Data Analytics inserted the row in the first in-application stream (the in-application input stream that is mapped to the streaming source).
+   * Approximate_Arrival_Time – Each Kinesis Data Analytics record includes a value called Approximate_Arrival_Time. This value is the approximate arrival time stamp that is set when the streaming source successfully receives and stores the record. When Kinesis Data Analytics reads records from a streaming source, it fetches this column into the in-application input stream. These time stamp values are useful in windowed queries that are time-based. For more information, see Windowed Queries.
 
  * The Real-time analytics tab shows all the other in-application streams created by your application code. It also includes the error stream. Kinesis Data Analytics sends any rows it cannot process to the error stream. For more information, see Error Handling. Choose DESTINATION_SQL_STREAM to view the rows your application code inserted. Note the additional columns that your application code didn't create. These columns include the ROWTIME time stamp column. Kinesis Data Analytics simply copies these values from the source (SOURCE_SQL_STREAM_001).
 
