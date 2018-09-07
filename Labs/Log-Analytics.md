@@ -14,8 +14,6 @@ By the end of this lab you will be able to:
 Prerequisites
 *	Some familiarity with IAM Roles and EC2 Instances is recommended. Previous knowledge of Kibana and Elasticsearch is desirable. 
 
-*	Have installed node.js and aws-es-proxy (available via npm). If you are a Windows user and do not wish to install node.js you can also download the aws-es-proxy from github and use without node.js or npm.
-
 *	Have correctly installed and configured the AWS command line interface. See [this documentation](https://aws.amazon.com/cli/) for instructions.
 
 ## **Create and Test an Amazon Elasticsearch Domain**
@@ -98,10 +96,11 @@ __wait until the mytestdomain cluster Domain **status** changes to **Active**__
 Note: By default, we can see logs for the last 15 minutes. You can change the interval by clicking on the small clock symbol in the top right corner.
 
 These are some of the log attributes that are displayed in the Kibana dashboard:
-    *	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
-    *	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary      security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
-    *	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials,     this is the access key ID of the temporary credentials.
-    *	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides information about the session that was created for those credentials. Sessions are created when any API is called that returns temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include multi-factor authentication.
+
+*	PrincipalId - A unique identifier for the entity that made the call. For requests made with temporary security credentials, this value includes the session name that is passed to the AssumeRole, AssumeRoleWIthWebIdentity, or GetFederationToken API call.
+*	AccountId - The account that owns the entity that granted permissions for the request. If the request was made using temporary      security credentials, this is the account that owns the IAM user or role that was used to obtain credentials.
+*	AccesKeyId - The access key ID that was used to sign the request. If the request was made using temporary security credentials,     this is the access key ID of the temporary credentials.
+*	SessionContext - If the request was made with temporary security credentials, the SessionContext is an element that provides information about the session that was created for those credentials. Sessions are created when any API is called that returns temporary credentials. Sessions are also created when users work in the console and when users make a request using APIs that include multi-factor authentication.
 
 9.	Click the disclosure triangle next to one of the search results
 10.	Scroll down to reveal the fields and values that CloudTrail sends
