@@ -64,7 +64,8 @@ __The service can take ten minutes to deploy. While waiting for the service to d
     Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
 
 
-### This is a workaround for a current bug in the console, only do this section on the Mac, do not do this if you are running Windows ##
+### __The below section is a workaround for a current bug in the console, only do the BELOW section on the Mac, do not do this if you are running Windows__ ##
+
 ### Create an IAM role for Lambda to write to Amazon ES ###
 
 1.	Navigate to the IAM console.
@@ -103,6 +104,7 @@ __The service can take ten minutes to deploy. While waiting for the service to d
 17.	Set the Role name to PostToAllAmazonESDomains
 18.	Click Create role.
 
+### __The above is a workaround for a current bug in the console, only do the ABOVE section on the Mac, do not do this if you are running Windows__ ##
 
 ### **Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
 
