@@ -63,6 +63,47 @@ __The service can take ten minutes to deploy. While waiting for the service to d
 15.	Click **Allow**.
     Note: Wait until the console returns to the **CloudTrail Configuration** page. To generate more CloudTrail log data, view some of the different AWS Services, such as Amazon VPC, Amazon EC2, or any of the other services in the AWS Management Console. While CloudTrail generates these logs, they will be sent to your ElasticSearch Cluster.
 
+
+### This is a workaround for a current bug in the console, only do this section on the Mac, do not do this if you are running Windows ##
+### Create an IAM role for Lambda to write to Amazon ES ###
+
+1.	Navigate to the IAM console.
+
+2.	Click the Policies tab in the left navigation window
+
+
+3.	Click Create policy.
+4.	Click the JSON tab
+5.	Paste the following
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "es:ESHttpPost"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+6.	Click Review policy.
+7.	Name the policy PostToAllAmazonESDomains.
+8.	Click Create policy.
+9.	Select the Roles tab in the left navigation pane.
+10.	Click Create role.
+11.	Leave AWS service selected under Select type of trusted entity.
+12.	Select Lambda as the service that will use this role.
+13.	Click Next: Permissions.
+14.	Type PostToAllAmazonESDomains in the search box.
+15.	Click the check mark next to the policy in the search results.
+16.	Click Next: Review.
+17.	Set the Role name to PostToAllAmazonESDomains
+18.	Click Create role.
+
+
 ### **Subscribe a CloudWatch Log Group to Amazon Elasticsearch Service**
 
 1.	In the AWS Management Console, click **Services**, then **Elasticsearch Service**
