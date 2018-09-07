@@ -12,9 +12,9 @@ By the end of this lab you will be able to:
 *	Monitor Amazon Elasticsearch Cluster Metrics
 
 Prerequisites
-*	Some familiarity with IAM Roles and EC2 Instances is recommended. Previous kowledge of Kibana and Elasticsearch is desirable. 
+*	Some familiarity with IAM Roles and EC2 Instances is recommended. Previous knowledge of Kibana and Elasticsearch is desirable. 
 
-*	Have installed node.js and aws-es-proxy (available via npm). 
+*	Have installed node.js and aws-es-proxy (available via npm). If you are a Windows user and do not wish to install node.js you can also download the aws-es-proxy from github and use without node.js or npm.
 
 *	Have correctly installed and configured the AWS command line interface. See [this documentation](https://aws.amazon.com/cli/) for instructions.
 
@@ -54,7 +54,7 @@ __The service can take ten minutes to deploy. While waiting for the service to d
 4.	Leave **Apply trail to all regions** set to **Yes**
 5.	Leave **Management events** set to **All**
 6.	Skip the **Data events** section
-7.	Under **Storage location** type **mytestdomain-s3** as the **S3 Bucket**
+7.	Under **Storage location** type **mytestdomain-s3-{yourname}** as the **S3 Bucket** since S3 bucket names are globally unique.
 8.	Skip the **Advanced** section
 9.	Click **Create**
 10.	You will be returned to the CloudTrail dashboard. Click **mytestdomain-trail** to open the configuration page
