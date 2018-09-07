@@ -4,9 +4,6 @@
 
 By following the steps in this section, you can create your first Amazon Kinesis data analytics application using the console. You will create an Amazon Kinesis data analytics application. Your application needs a streaming source. To help you get started, the console can create a demo stream (called kinesis-analytics-demo-stream). The console also runs a script that populates records in the stream. You can write your own SQL queries against the in-application stream, but for the following lab you use one of the templates that provides sample code. Finally if time permits, you will explore how to update the application code.
 
-### Prerequisites
-
-[Set Up the AWS Command Line Interface (AWS CLI)](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/setup-awscli.html)
 
 ### Create an Application
 
