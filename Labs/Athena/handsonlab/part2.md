@@ -42,16 +42,18 @@ title: Amazon Athena Hands On Lab
 
 1. Open the Athena console
 
-2. From the **Database** pane on the left hand side, click **Create Table** drop down and select **Automatically**
+2. From the **Database** pane on the left hand side, click **Create Table** drop down and select **from AWS Glue Crawler**
 > Note: If you see **Add Table** link it either means you are using Athena where Glue is not yet available, so switch to N. Virginia or you have not migrated Athena to use the Glue Data Catalog, do so by clicking **Migrate** when prompted or follow these [instructions](http://docs.aws.amazon.com/athena/latest/ug/glue-upgrade.html).
 
 ![image](images/create_table_crawler.png "create table with crawler")
 
-3. Enter a name for the crawler and select the IAM role we created in the previous section.  Click Next.
+3. Enter a name for the crawler.  Click Next.
 
 4. Select the **Specify path in another account** radio button and enter **s3://serverless-analytics/canonical/NY-Pub/** for the S3 path.  Click Next.
 
 5. Do **not** add another data source and click Next.
+
+6. Select **Choose an existing IAM role** and select the **AWSGlueServiceRole** from the dropdown.  Click Next.
 
 6. For frequency leave as **Run on Demand** and click Next.
 
