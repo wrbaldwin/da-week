@@ -17,9 +17,11 @@ We will use a public data set provided by [Instacart in May 2017](https://tech.i
 1. Open the AWS Glue console
 
 2. Select **Crawler** and click **Add Crawler**
-3. Give your crawler a name and choose the Glue IAM role we created in Part 2.  **AWSGlueServiceRole**
-4. Select **S3** as the **Data Source** and specify a path in **another account**.  Paste **s3://royon-customer-public/instacart/** as the S3 path.  
-5. Do not add any additional data sources and select **Run On Demand** for frequency
+3. Give your crawler a name.
+4. Select **S3** as the **Data Source** and specify a path in **another account**.  Paste **s3://royon-customer-public/instacart/** as the S3 path.
+5. Do **not** add another data source and click Next.
+6. Select **Choose an existing IAM role** and select the **AWSGlueServiceRole** from the dropdown.  Click Next.
+6. For frequency leave as **Run on Demand** and click Next.
 6. Create a new database called **instacart** and enter **raw_** as the table prefix
 7. Click **Finish** to complete creating the crawler
 8. Run the new crawler
@@ -34,10 +36,10 @@ As you can see the Classification is *UNKNOWN*.  We need to fix it before contin
 3. Click **Apply** to save the changes
 You may have also noticed that we don't have any column, that's ok, we'll fix this soon.
 
-We'll now create an ETL job that will process all 5 tables that the crawler created, combine them into a single table and save in a Parquet optimized file format.
+We'll now create an ETL job that will process all 4 tables that the crawler created, combine them into a single table and save in a Parquet optimized file format.
 
 From the Glue ETL menu select **Jobs** and click **Add Job**
-1. Give your job a name, **instacart_etl** and select our service role.  Leave all of the other options unchanged but select a **Temporary Directory**
+1. Give your job a name, **instacart_etl** and select our service role.  Leave all of the other options unchanged.
 
 2. From the **Data Sources** list select one of the Instcart tables, lets say **raw_orders**.  We can only select one table.
 
@@ -49,7 +51,7 @@ From the Glue ETL menu select **Jobs** and click **Add Job**
 
 4. In this step we can change the source to target column mapping but we will not change this now.  Click **Next**
 
-5. Click **Finish** to complete creating our ETL 
+5. Click **Finish** to complete creating our ETL
 
 As you can see, AWS Glue created a script for you to get started.  If we didn't need to do anything else, this script simply converts our CSV data to Parquet.
 If you remember we still need to fix the Products table.  Select everything in the script window and replace it with the code below.
@@ -133,8 +135,8 @@ From the Glue console select **Crawlers** and create a new crawler.  Point it to
 Go ahead and explore the data.  Here is an example SQL query that counts orders and groups them by department.
 
 ```sql
-SELECT count(*) AS count, department 
-FROM instacart."table_prior_orders" 
+SELECT count(*) AS count, department
+FROM instacart."table_prior_orders"
 GROUP BY department
 ```
 
