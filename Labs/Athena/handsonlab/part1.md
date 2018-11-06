@@ -25,9 +25,9 @@ title: Amazon Athena Hands On Lab
 	* AmazonAthenaFullAccess
 	* AWSQuicksightAthenaAccess
 	* AmazonS3FullAccess
- 
+
 ## Creating an Athena Table
-We will be using the NYC Public Taxi dataset for this excercise available in **s3://serverless-analytics/canonical/NY-Pub/**
+We will be using the NYC Public Taxi dataset for this exercise available in **s3://serverless-analytics/canonical/NY-Pub/**
 
 1. Open the Athena console
 
@@ -68,7 +68,7 @@ Enter `MSCK REPAIR TABLE taxis` and click Run Query
 Select the top ten yellow taxis in 2016 ordered by pickup time in descending order
 
 ```sql
-SELECT * 
+SELECT *
 FROM taxis.taxis
 WHERE year=2016 AND type='yellow'
 ORDER BY pickup_datetime desc
@@ -79,7 +79,7 @@ LIMIT 10;
 Show how much money each taxi company made per year.
 
 ```sql
-SELECT 
+SELECT
   year,
   type,
   round(SUM(trip_distance),2) as "Total distance",
@@ -94,7 +94,7 @@ Lastly, lets see, for 2015 and 2016, how many passengers traveled during rush ho
 
 ```sql
 WITH dataset AS (
-  SELECT 
+  SELECT
     date(pickup_datetime) AS dd,
     cast(date_format(pickup_datetime, '%H:%i') AS time) AS tt,
     dow(date(pickup_datetime)) AS day,
