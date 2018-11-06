@@ -1,7 +1,3 @@
----
-title: Amazon Athena Hands On Lab
----
-
 # Part 1 - Exploring NYC Taxi public data set
 
 ## Prerequisits

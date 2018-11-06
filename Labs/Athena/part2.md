@@ -1,7 +1,3 @@
----
-title: Amazon Athena Hands On Lab
----
-
 # Part 2 - Automating Table Creation
 
 ## References

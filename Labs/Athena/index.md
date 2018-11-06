@@ -1,7 +1,3 @@
----
-title: Amazon Analytics Hands On Lab
----
-
 # Amazon Analytics Hands On Labs
 
 Welcome to the Amazon Analytics hands on lab.  This lab is divided into several modules and each module into several parts to help you get familiar with Amazon analytics services.  We will be using different public datasets to demonstrate how to create tables from the data, query and visualize them using services such as Amazon Athena, AWS Glue and Amazon QuickSight.

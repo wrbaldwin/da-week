@@ -1,7 +1,3 @@
----
-title: Amazon Athena Hands On Lab
----
-
 # Part 4 - Visualizing Data with QuickSight
 
 ## References

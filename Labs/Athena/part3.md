@@ -1,7 +1,3 @@
----
-title: Amazon Athena Hands On Lab
----
-
 # Part 3 - Crawling, Transforming and Querying
 
 ## References
