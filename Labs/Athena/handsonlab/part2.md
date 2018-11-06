@@ -57,7 +57,7 @@ title: Amazon Athena Hands On Lab
 
 7. Click **Add Database** button and give your database a name, say **labs**
 
-8. In order to avoid table name collision Glue generates a unique table name so we'll need to provide a prefix, say **taxis_** (include the underscore)
+8. In order to avoid table name collision Glue generates a unique table name so we'll need to provide a prefix, say **taxi_** (include the underscore)
 
 9. Click **Finish**
 
@@ -82,10 +82,10 @@ title: Amazon Athena Hands On Lab
 
 2. Enter `SHOW PARTITIONS labs.taxi_ny_pub` to verify all partitions were automatically added
 
-3. Try the SQL statement below to explore the data. 
+3. Try the SQL statement below to explore the data.
 
 ```sql
-SELECT * 
+SELECT *
 FROM labs.taxi_ny_pub
 WHERE year BETWEEN '2013' AND '2016' AND type='yellow'
 ORDER BY pickup_datetime desc
