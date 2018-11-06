@@ -10,10 +10,10 @@ Welcome to the Amazon Analytics hands on lab.  This lab is divided into several 
 
 ## Amazon Athena Hands On Lab
 
-1. [Exploring NYC Taxi public data set](part1.html)
+1. [Exploring NYC Taxi public data set](part1.md)
 
-2. [Automating creation of tables and partitions](part2.html)
+2. [Automating creation of tables and partitions](part2.md)
 
-3. [Crawling, Transforming and Querying](part3.html)
+3. [Crawling, Transforming and Querying](part3.md)
 
-4. [Visualizing Data with QuickSight](part4.html)
+4. [Visualizing Data with QuickSight](part4.md)
