@@ -49,8 +49,10 @@ To explore the Instacart data we previously created we need to login to Amazon Q
 
 ![image](images/quicksight_main.png "amazon quicksight main windows")
 
+2. Update the region (shown in the top right corner) if it does not match the one you used in part 3 of this lab.
+
 3. Next we'll need modify QuickSight's permissions to be able to access Athena and S3.  From the top right corner, click on your user icon and select **Manage QuickSight**
-From the left hand side menu select **Account Settings** and click the **Edit AWS Permissions** button under Account Permissions.
+From the left hand side menu select **Account Settings** and click the **Manage QuickSight permissions to AWS resources** button under QuickSight permissions to AWS resources.
 
 4. On the permissions screen, tick the box for **Amazon Athena** and **Amazon S3**.  When asked to select S3 buckets, select all buckets. Click **Apply** and go back to the main screen.
 
