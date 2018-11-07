@@ -41,7 +41,7 @@ From the Glue ETL menu select **Jobs** and click **Add Job**
 
 ![image](images/etl_select_source.png "select raw_orders data source")
 
-3. When choosing our data targets select **Create tables in your data target**. Select **Amazon S3** for data store and **Parquet** for format.  Enter your own S3 bucket for target
+3. When choosing our data targets select **Create tables in your data target**. Select **Amazon S3** for data store and **Parquet** for format.  Choose a name for a new S3 bucket `s3://<your_bucket_name>/`
 
 ![image](images/etl_data_target.png "select data target")
 
@@ -145,3 +145,6 @@ WHERE eval_set='prior' AND order_hour_of_day BETWEEN 11 and 13
 GROUP BY order_dow
 ORDER BY user_count desc
 ```
+
+## Clean up
+When you finish all of the parts of this lab delete the bucket you created to store the job output.
