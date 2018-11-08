@@ -166,7 +166,7 @@ You create visualizations in Elasticsearch to analyze your data and reveal patte
 5.	Click **Split Slices**
 6.	Under **Aggregation**, select **Terms**
 7.	Under **Field**, select **eventSource.keyword** (you may have to scroll down to the **Strings** section of the menu).
-8.	Click the <play button> control to reveal a pie chart of different services
+8.	Click the **play button** control to reveal a pie chart of different services
 9.	Click **Add sub-buckets**
 10.	Click **Split Slices**
 11.	From the **Sub Aggregation** menu, select **Terms**
