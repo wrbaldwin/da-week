@@ -223,3 +223,27 @@ Congratulations! You now know how to:
 * For more information about Cloudtrail, see https://aws.amazon.com/cloudtrail/ 
 * For more information about Cloudwatch, see https://aws.amazon.com/cloudwatch/ 
 
+## **Deleting Resources After the Lab**
+The below is based on the names listed in the above lab. If you used different names, substitute accordingly.
+
+**CloudTrail Resources**
+1.	In the AWS Management Console, click **Services**, then **CloudTrail**
+2.  In the CloudTrail Dashboard, **View trails**
+3.  Click the trail you created earlier, **mytestdomain-trail** to open the configuration page
+4.	Scroll down to the **CloudWatch Logs** section, click the **trashcan icon** on the right side of the CloudWatch Logs section, and **Continue** to confirm deletion
+5.	Scroll back to the top of the page, click the **trashcan icon** to the right side of the Trail's name (located below the **Logging** toggle), and **Delete**
+
+**CloudWatch Resources**
+1.	In the AWS Management Console, click **Services**, then click **CloudWatch**
+2.	Click **Logs** in the left navigation pane
+3.	In the **Log Groups** page, tick the circle for the Log Group you created earlier, **CloudTrail/mytestdomain-trail**
+4.	Click the **Actions** drop-down list, select **Delete log group**, then confirm with **Yes, Delete**
+
+**S3 Resources**
+1.	In the AWS Management Console, click **Services**, then click **S3**
+2.  Click beside the bucket name you created earlier during the CloudTrail setup and click **Delete**
+3.  Type the name of the bucket you're deleting and click **Confirm**
+
+**ElasticSearch Resources**
+1.	In the AWS Management Console, click **Services**, then click **ElasticSearch Service**
+2.  Click **mytestdomain** to open the configuration page, click **Delete domain**, check to box, and click **Delete**
