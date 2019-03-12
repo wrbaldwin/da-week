@@ -15,7 +15,7 @@ After you deploy the CloudFormation template, sign into your account to view the
 •	Amazon Cognito User credentials: You will use these user credentials to log into the Kinesis Data Generator to send records to our Amazon Kinesis Data Firehose. 
 
  
-![Image of](https://github.com/agaafar/testlab/blob/master/images/image001.jpg)
+![Image of](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image001.jpg)
  
  	 
 
@@ -26,13 +26,13 @@ After you deploy the CloudFormation template, sign into your account to view the
 1.	In your AWS account, navigate to the CloudFormation console.  
 2.	On the CloudFormation console, Click  Create new Stack. 
  
-![Image](https://github.com/agaafar/testlab/blob/master/images/image003.jpg) 
+![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image003.jpg) 
  
 3.	In the Select Template section, select Upload a template to Amazon S3. Then, browse to your Kinesis_Pre_Lab.json file provided with your lab package.
 
  
   
- ![Image](https://github.com/agaafar/testlab/blob/master/images/image005.jpg)
+ ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image005.jpg)
  
  
  
@@ -48,7 +48,7 @@ After you deploy the CloudFormation template, sign into your account to view the
 •	Email: Type an email address that you can access. The SNS topic sends a confirmation to this address.  
 •	SMS: Type a phone number (+1XXXXXXXXX) where you can receive texts from the SNS topic. 
  
-   ![Image](https://github.com/agaafar/testlab/blob/master/images/image007.jpg)
+   ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image007.jpg)
  
 7.	In the Options, section, keep the default values. 
 8.	In the Review section, select the check box marked I acknowledge that AWS CloudFormation might create IAM resources.  
