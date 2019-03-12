@@ -16,3 +16,5 @@ In this workshop, you will set up a Redshift cluster, load data from multiple so
 [Log Analytics](https://github.com/wrbaldwin/da-week/blob/master/Labs/Log-Analytics.md) - In this workshop, you will get started with Amazon Elasticsearch Service: creating clusters, cluster node configurations, storage configurations, and Identity Access Manager (IAM) Policies.
 
 [Stream Analytics](https://github.com/wrbaldwin/da-week/blob/master/Labs/Stream-Analytics.md) - We'll create streams with Amazon DynamoDB and analyze them in real time with Amazon Kinesis Data Analytics.. You’ll need a laptop with a Firefox or Chrome.
+
+[Analyzing Data Streams](https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams.md) - We will build a streaming data pipeline using Amazon Kinesis services. We will generate and ingest data, then perform real-time anomaly detection on it. You will need a laptop with Firefox or Chrome browser for this lab.
