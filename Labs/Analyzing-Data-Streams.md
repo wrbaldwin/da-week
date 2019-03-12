@@ -17,7 +17,15 @@ After you deploy the CloudFormation template, sign into your account to view the
  
 ![Image of](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image001.jpg)
  
- 	 
+## Download Lab Files
+Download the three files below to your local machine. You will be using them in different steps in the lab.
+
+[CloudFormation Template](https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams-Lab-Files/Kinesis_Pre_Lab.json)
+
+[Anomaly Detection SQL](https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams-Lab-Files/anomaly_detection.sql)
+
+[Anomaly Detection Lambda](https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams-Lab-Files/anomaly_detection_lambda.js)
+
 
 # CloudFormation Stack Deployment 
  
