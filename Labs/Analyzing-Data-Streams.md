@@ -52,9 +52,13 @@ anomaly_detection_lambda.js: Anomaly Detection Lambda function
 5.	In the Specify Details section, for Stack name, type kinesis-pre-lab. 
 6.	In the Parameters section, fill the following fields: 
 •	Username: This is your username to login to the Kinesis Data Generator 
+
 •	Password: This is your password for the Kinesis Data Generator. The password must be at least 6 alpha-numeric characters and contain at least one number and a capital letter. 
+
 •	Email: Type an email address that you can access. The SNS topic sends a confirmation to this address.  
+
 •	SMS: Type a phone number (+1XXXXXXXXX) where you can receive texts from the SNS topic. 
+
  
    ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image007.jpg)
  
