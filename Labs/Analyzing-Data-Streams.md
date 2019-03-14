@@ -84,17 +84,23 @@ Congratulations! You are all done with the CloudFormation deployment.
  
  
  
-Set up the Amazon Kinesis Data Generator 
+## Set up the Amazon Kinesis Data Generator 
  
 On the Outputs tab, notice the Kinesis Data Generator URL. Navigate to this URL to login into the Amazon Kinesis Data Generator (Amazon KDG). 
  
 The KDG simplifies the task of generating data and sending it to Amazon Kinesis. The tool provides a user friendly UI that runs directly in your browser. With the KDG, you can do the following tasks: 
+
 •	Create templates that represent records for your specific use cases 
+
 •	Populate the templates with fixed data or random data 
+
 •	Save the templates for future use 
+
 •	Continuously send thousands of records per second to your Amazon Kinesis stream or Firehose delivery stream 
+
  
 Let’s test your Cognito user in the Kinesis Data Generator.  
+
 1.	On the Outputs tab, click the KinesisDataGeneratorUrl. 
  
   ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image015.jpg)
@@ -216,13 +222,17 @@ Now that your Kinesis Data Firehose is receiving data, you can continue configur
   ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image047.jpg)
   
 Now, you can add some SQL queries to easily analyze the data that is being fed into the stream.  
+
 12.	In the Real time analytics section, click Go to SQL editor. 
+
 13.	Click on “Yes, start application” to start your kinesis analytics application. 
+
   
   ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image049.jpg)
   
 14.	Erase the placeholder text in the SQL editor
-15.	Copy the contents of the file named ‘anomaly_detection.sql’ from your lab package and paste it into the SQL editor. (You can find the same code in Appendix at the end of this document as well) 
+15.	Copy the contents of the file named ‘anomaly_detection.sql’ from your lab package and paste it into the SQL editor. 
+
  
   ![Image](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image051.jpg)
   
