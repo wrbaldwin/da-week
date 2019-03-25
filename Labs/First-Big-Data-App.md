@@ -2,7 +2,7 @@
 
 Follow these steps to get started:
 
-1. Download the Presentation [First-Big-Data-App.pdf]() which contains the workshop overview and attendee instuctions for building the application.
+1. Download the Presentation [First-Big-Data-App.pdf](Labs/First-Big-Data-App/First-Big-Data-App.pdf) which contains the workshop overview and attendee instuctions for building the application.
 
 2. Apply the AWS usage credits to your AWS Account. Log into your AWS account and click on your name on the upper right corner and select "My Account from the menu. On the left side of the My Account page, select "Credits" and enter the code you were given.
 
