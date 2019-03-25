@@ -18,7 +18,9 @@ After you deploy the CloudFormation template, sign into your account to view the
 ![Image of](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image001.jpg)
  
 ## Download Lab Files
-Download the lab files to your machine from here https://github.com/wrbaldwin/da-week/tree/master/Labs/Analyzing-Data-Streams-Lab-Files. You will be using them in different steps in the lab.
+Download the zip file to your machine from here https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams-Lab-Files/AnalyzingDataStreams_Lab_Files.zip. 
+
+The zip has three files you will be using in different steps in the lab:
 
 Kinesis_Pre_Lab.json: CloudFormation template
 
