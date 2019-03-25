@@ -18,7 +18,7 @@ After you deploy the CloudFormation template, sign into your account to view the
 ![Image of](https://github.com/wrbaldwin/da-week/blob/master/Labs/img/ads/image001.jpg)
  
 ## Download Lab Files
-Download the zip file to your machine from here https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams-Lab-Files/AnalyzingDataStreams_Lab_Files.zip. 
+Download the zip file to your machine from here https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams-Lab-Files/AnalyzingDataStreams_Lab_Files.zip?raw=true
 
 The zip has three files you will be using in different steps in the lab:
 
