@@ -6,6 +6,8 @@ Data Analytics Week at the AWS Loft is an opportunity to learn about Amazon’s 
 
 [Building Your First Big Data Application on AWS](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App.md) - Build an end-to-end analytics application on AWS using Amazon Kinesis, AWS Glue, Amazon S3, Amazon Redshift and other AWS services. You will need a laptop with Firefox or Chrome browser for this lab.
 
+[Analyze your operational and log data](https://github.com/wrbaldwin/da-week/blob/master/Labs/Log-analytics-and-Kibana-Lab-Guide.pdf) - Analyze and visualize your log data at scale for real-time operational insights into your applications and infrastructure, and make more informed decisions.
+
 [Analyzing Data Streams](https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams.md) - We will build a streaming data pipeline using Amazon Kinesis services. We will generate and ingest data, then perform real-time anomaly detection on it. You will need a laptop with Firefox or Chrome browser for this lab.
 
 [Amazon Athena & Glue](Labs/Athena/index.md) - In this lab, we will be using different public datasets to demonstrate how to create  tables from the data, query and visualize them using services such as  Amazon Athena, and AWS Glue.
