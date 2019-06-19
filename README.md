@@ -6,11 +6,14 @@ Data Analytics Week at the AWS Loft is an opportunity to learn about Amazon’s 
 
 [Building Your First Big Data Application on AWS](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App.md) - Build an end-to-end analytics application on AWS using Amazon Kinesis, AWS Glue, Amazon S3, Amazon Redshift and other AWS services. You will need a laptop with Firefox or Chrome browser for this lab.
 
+[Migrating Your On-Premises Data Warehouse to Amazon Redshift with AWS SCT](https://github.com/sudhig/da-week/tree/master/Labs/DW-Migration-to-Redshift-using-SCT) - In this lab, you will migrate a sample Oracle data warehouse to Amazon Redshift. You will first setup the environment using a CloudFormation template. The CloudFormation template will create a RDS Oracle data warehouse, Redshift cluster and three EC2 instance. The Windows EC2 machine will have the AWS SCT installer and requried drivers and other two EC2 Linux machine will have the AWS SCT Data Extraction agents RPM. You will need to install and configure the agents to extract your data and move to Amazon Redshift. You will need a Mac or Windows computer with a Firefox or Chrome browser.
+
 [Analyze your operational and log data](https://github.com/wrbaldwin/da-week/blob/master/Labs/Log-analytics-and-Kibana-Lab-Guide.pdf) - Analyze and visualize your log data at scale for real-time operational insights into your applications and infrastructure, and make more informed decisions.
 
 [Analyzing Data Streams](https://github.com/wrbaldwin/da-week/blob/master/Labs/Analyzing-Data-Streams.md) - We will build a streaming data pipeline using Amazon Kinesis services. We will generate and ingest data, then perform real-time anomaly detection on it. You will need a laptop with Firefox or Chrome browser for this lab.
 
 [Amazon Athena & Glue](Labs/Athena/index.md) - In this lab, we will be using different public datasets to demonstrate how to create  tables from the data, query and visualize them using services such as  Amazon Athena, and AWS Glue.
+
 
 ## Old Labs
 
