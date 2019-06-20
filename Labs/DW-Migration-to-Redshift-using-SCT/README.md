@@ -1,5 +1,5 @@
 
-1. Download zip file: [D1S04.zip](https://tiny.amazon.com/z4asn9bp/D1S04)
+1. Download zip file: [D1S04.zip](https://tiny.amazon.com/1f34lh7i0/D1S04)
 
     It contains
          AWS CloudFormation template,
@@ -10,4 +10,4 @@
   
 2. Logon to AWS Management Console and choose AWS Region eu-west-1 (Ireland)
 
-3. Follow lab guide instructions [D1S04 Lab Instructions](https://tiny.amazon.com/1h05ntq2d/LabInstructions)
+3. Follow lab guide instructions [D1S04 Lab Instructions](https://tiny.amazon.com/1au15p9uc/D1S04LabGuide)
