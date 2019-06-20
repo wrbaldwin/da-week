@@ -1,4 +1,4 @@
-## D1S04 - Migrating Your On-Premises Data Warehouset to Amazon Redshift with AWS SCT
+## D1S04 - Migrating Your On-Premises Data Warehouse to Amazon Redshift with AWS SCT
 
 Follow these steps to get started:
 
