@@ -2,7 +2,7 @@
 
 Follow these steps to get started:
 
-1. Download the Presentation [D1S04-Presentation-Migrate-Your-DataWarehouse-To-AmazonRedshift-with-AWS-SCT.pdf](https://github.com/wrbaldwin/da-week/edit/master/Labs/DW-Migration-to-Redshift-using-SCT/D1S04-Presentation-Migrate-Your-DataWarehouse-To-AmazonRedshift-with-AWS-SCT.pdf) which contains the workshop overview and attendee instuctions.
+1. Download the Presentation [D1S04-Presentation-Migrate-Your-DataWarehouse-To-AmazonRedshift-with-AWS-SCT.pdf](https://github.com/wrbaldwin/da-week/blob/master/Labs/DW-Migration-to-Redshift-using-SCT/D1S04-Presentation-Migrate-Your-DataWarehouse-To-AmazonRedshift-with-AWS-SCT.pdf) which contains the workshop overview and attendee instuctions.
 
 2. Apply the AWS usage credits to your AWS Account. Log into your AWS account and click on your name on the upper right corner and select "My Account from the menu. On the left side of the My Account page, select "Credits" and enter the code you were given.
 
