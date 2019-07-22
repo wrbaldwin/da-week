@@ -4,7 +4,7 @@ Data Analytics Week at the AWS Loft is an opportunity to learn about Amazon’s 
 
 ## 2019 Labs
 
-[Building Your First Big Data Application on AWS](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App.md) - Build an end-to-end analytics application on AWS using Amazon Kinesis, AWS Glue, Amazon S3, Amazon Redshift and other AWS services. You will need a laptop with Firefox or Chrome browser for this lab.
+[Building Your First Big Data Application on AWS](https://github.com/wrbaldwin/da-week/tree/master/Labs/First-Big-Data-App) - Build an end-to-end analytics application on AWS using Amazon Kinesis, AWS Glue, Amazon S3, Amazon Redshift and other AWS services. You will need a laptop with Firefox or Chrome browser for this lab.
 
 [Migrating Your On-Premises Data Warehouse to Amazon Redshift with AWS SCT](https://github.com/wrbaldwin/da-week/tree/master/Labs/DW-Migration-to-Redshift-using-SCT) - In this lab, you will migrate a sample Oracle data warehouse to Amazon Redshift. You will first setup the environment using a CloudFormation template. The CloudFormation template will create a RDS Oracle data warehouse, Redshift cluster and three EC2 instance. The Windows EC2 machine will have the AWS SCT installer and requried drivers and other two EC2 Linux machine will have the AWS SCT Data Extraction agents RPM. You will need to install and configure the agents to extract your data and move to Amazon Redshift. You will need a Mac or Windows computer with a Firefox or Chrome browser.
 
