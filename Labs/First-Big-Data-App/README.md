@@ -6,7 +6,7 @@ Follow these steps to get started:
 
 2. Apply the AWS usage credits to your AWS Account. Log into your AWS account and click on your name on the upper right corner and select "My Account from the menu. On the left side of the My Account page, select "Credits" and enter the code you were given.
 
-3. Download the Workshop Scripts zip by clicking on the link. You will use these SQL and Python scripts when building your application.
+3. Download attached Workshop Scripts - BigDataWorkshop.zip. You will use these SQL and Python scripts when building your application.
 
 4. Run the AWS CloudFormation template to create the AWS resources refered to as the 'CloudFormation Stack' used in this workshop. Remember when you are done to delete the CloudFormation Stack to ensure that you stop incurring charges for these AWS resources.
 
