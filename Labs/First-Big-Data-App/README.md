@@ -2,11 +2,11 @@
 
 Follow these steps to get started:
 
-1. Download the workshop intruction [D1S02_Building_your_First_Big_Data_Application_on_AWS.pdf](First-Big-Data-App/D1S02_Building_your_First_Big_Data_Application_on_AWS.pdf) which contains the workshop overview and attendee instuctions for building the application.
+1. Download the workshop intruction [D1S02_Building_your_First_Big_Data_Application_on_AWS.pdf](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App/D1S02_Building_your_First_Big_Data_Application_on_AWS.pdf) which contains the workshop overview and attendee instuctions for building the application.
 
 2. Apply the AWS usage credits to your AWS Account. Log into your AWS account and click on your name on the upper right corner and select "My Account from the menu. On the left side of the My Account page, select "Credits" and enter the code you were given.
 
-3. Download attached Workshop Scripts - BigDataWorkshop.zip. You will use these SQL and Python scripts when building your application.
+3. Download attached [Workshop Scripts](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App/BigDataWorkshop.zip). You will use these SQL and Python scripts when building your application.
 
 4. Run the AWS CloudFormation template to create the AWS resources refered to as the 'CloudFormation Stack' used in this workshop. Remember when you are done to delete the CloudFormation Stack to ensure that you stop incurring charges for these AWS resources.
 
