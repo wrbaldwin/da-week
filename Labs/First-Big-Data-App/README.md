@@ -3,6 +3,7 @@
 Follow these steps to get started:
 
 1. Download the workshop intruction [D1S02_Building_your_First_Big_Data_Application_on_AWS.pdf](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App/D1S02_Building_your_First_Big_Data_Application_on_AWS.pdf) which contains the workshop overview and attendee instuctions for building the application.
+Note: If you notice issue with PDF version, download word format document [D1S02_Building_your_First_Big_Data_Application_on_AWS.docx](https://github.com/wrbaldwin/da-week/blob/master/Labs/First-Big-Data-App/D1S02_Building_your_First_Big_Data_Application_on_AWS.docx)
 
 2. Apply the AWS usage credits to your AWS Account. Log into your AWS account and click on your name on the upper right corner and select "My Account from the menu. On the left side of the My Account page, select "Credits" and enter the code you were given.
 
