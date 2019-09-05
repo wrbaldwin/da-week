@@ -246,7 +246,7 @@ Now, you can add some SQL queries to easily analyze the data that is being fed i
 16.	Click Save and run SQL. The analytics application starts and runs your SQL query. (You can find the SQL query in Appendix A.) 
  
 To learn more about the SQL logic, see the Analytics application section in the following blog post: 
- https://aws.amazon.com/blogs/big-data/real-time-clickstream-anomaly-detection-withamazon-kinesis-analytics/ 
+ https://aws.amazon.com/blogs/big-data/real-time-clickstream-anomaly-detection-with-amazon-kinesis-analytics/ 
  
 
  
