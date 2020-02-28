@@ -32,7 +32,7 @@ Follow these steps to get started:
 
 Follow these steps to get started:
 
-1. Download [scripts_ee.zip](https://github.com/sudhig/DW-Migration-to-Redshift-using-SCT/blob/master/scripts_ee.zip). It contains Lab instructions guide (Instructions_Migrate_ODW_to_Redshift_using_AWS_SCT.pdf), SQL File (SQLfile.txt), Policy file (S3-IAM-Policies.txt) and AWS CloudFormation template.
+1. Download [scripts_ee.zip](https://github.com/wrbaldwin/da-week/blob/master/Labs/DW-Migration-to-Redshift-using-SCT/scripts_ee.zip). It contains Lab instructions guide (Instructions_Migrate_ODW_to_Redshift_using_AWS_SCT.pdf), SQL File (SQLfile.txt), Policy file (S3-IAM-Policies.txt) and AWS CloudFormation template.
 
 2. Open AWS Event Engine dashboard: https://dashboard.eventengine.run/dashboard.
    Enter "Team Hash" code, provided by lab instructor, and click "Accept terms & Login".
